@@ -10,9 +10,9 @@ const HomeLayout = props => {
 };
 export const HomeTemplate = ({ Component, ...props }) => {
     return (
-        <Route {...props} render={(propsComponent) => (
+        <Route {...props} render={propsComponent => (
             <HomeLayout {...propsComponent} >
-                <Component  />
+                <Component />
             </HomeLayout>
         )} />
     )
