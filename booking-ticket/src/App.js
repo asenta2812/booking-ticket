@@ -9,6 +9,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <HomeTemplate exact path="/" Component={HomePage} />
+          <HomeTemplate exact path="/trangchu" Component={HomePage} />
         </Switch>
       </BrowserRouter>
     </Fragment>
