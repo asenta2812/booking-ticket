@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
-import "./App.css";
 import { HomeTemplate } from "./Templates/HomeTemplate/HomeTemplate";
 import HomePage from "./Pages/HomePage/HomePage";
 import DetailMovie from "./Pages/DetailPageForMovie/DetailMovie";
