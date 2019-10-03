@@ -1,10 +1,12 @@
 import React, { Fragment } from "react";
 import { Route } from "react-router-dom";
-import Header from "../../component/Header/Header";
+import HeaderHome from "../../component/layouts/Header/HeaderHome/HeaderHome";
+import FooterHome from "../../component/layouts/Footer/FooterHome/FooterHome";
 const HomeLayout = props => {
     return <Fragment>
-        <Header />
+        <HeaderHome />
         {props.children}
+        <FooterHome/>
     </Fragment>
 
 };
