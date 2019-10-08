@@ -1,0 +1,45 @@
+.login-admin {
+    background-image: url('./assets/images/bg-img-login-admin.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .login-card {
+        width: 380px;
+        height: 555px;
+        background-color: $color-white-3;
+        display: block;
+        border-radius: 20px;
+        color: $color-black-1;
+        padding: 20px 40px;
+        box-shadow: 2px 0 1px 1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1);
+    }
+
+    #standard-name {
+        width: 100%;
+        color: $color-white-3;
+    }
+
+    .effect-17 {
+        border: 0;
+        padding: 4px 0;
+        border-bottom: 1px solid #ccc;
+        background-color: transparent;
+    }
+
+    .effect-17~.focus-border {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background-color: #4caf50;
+        transition: 0.4s;
+    }
+
+}
