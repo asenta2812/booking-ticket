@@ -1,0 +1,20 @@
+import {settings} from '../../common/Config/Settings'
+import { actionTypes } from '../constants/QuanLyPhimConstants';
+import axios from 'axios';
+
+export const layDanhSachPhim1Actions = () => {
+    return dispatch => {
+        axios ({
+            url: settings.domain + `/QuanLyPhim/LayDanhSachPhim?maNhom=${settings.groupID}`,
+            method: 'GET'
+        }).then(result => {
+            dispatch ({
+                type:actionTypes.LAY_DANH_SACH_PHIM_1,
+                mangPhim:result.data
+            })
+            // console.log(result)
+        }).catch(err => {
+            console.log(err.response.data)
+        })
+    }
+}
