@@ -9,7 +9,7 @@ export const layDanhSachPhim1Actions = () => {
             method: 'GET'
         }).then(result => {
             dispatch ({
-                type:actionTypes.LAY_DANH_SACH_PHIM_1,
+                type:actionTypes.LAY_DANH_SACH_PHIM,
                 mangPhim:result.data
             })
             // console.log(result)
@@ -25,7 +25,7 @@ export const layThongTinRapAction =()=> {
             method: 'GET'
         }).then(result => {
             dispatch({
-                type:actionTypes.LAY_DANH_SACH_PHIM_2,
+                type:actionTypes.LAY_DANH_SACH_RAP,
                 mangRap:result.data
 
             })
