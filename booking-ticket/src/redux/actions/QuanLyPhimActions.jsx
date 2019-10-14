@@ -18,3 +18,20 @@ export const layDanhSachPhim1Actions = () => {
         })
     }
 }
+export const layThongTinRapAction =()=> {
+    return dispatch => {
+        axios({
+            url: settings.domain + `/QuanLyRap/LayThongTinHeThongRap`,
+            method: 'GET'
+        }).then(result => {
+            dispatch({
+                type:actionTypes.LAY_DANH_SACH_PHIM_2,
+                mangRap:result.data
+
+            })
+            console.log(result.data)
+        }).catch( err => {
+            console.log(err.response.data)
+        })
+    }
+}

@@ -25,11 +25,9 @@ export default class MovieList extends Component {
     }
     render() {
         return (
-            <Container >
                 <div className="row">
                     {this.renderPhim()}
                 </div>
-            </Container>
         )
     }
 }
