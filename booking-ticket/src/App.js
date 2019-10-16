@@ -7,6 +7,7 @@ import DetailMovieTheater from "./Pages/DetailPageForMovieTheater/DetailMovieThe
 import AdminPage from "./Pages/AdminPage/AdminPage"
 import { AdminTemplate } from "./Templates/AdminTemplate/AdminTemplate";
 import LoginAdmin from "./Pages/LoginPageAdmin/LoginAdmin";
+import Register from "./component/functions/Register/Register";
 function App() {
   return (
     <Fragment>
@@ -18,6 +19,7 @@ function App() {
           <HomeTemplate exact path="/chitietrap" Component={DetailMovieTheater}/>
           <AdminTemplate exact path="/trangquanly" Component={AdminPage}/>
           <Route exact path="/quanly" component={LoginAdmin}/>
+          <Route exact path="/dangky" component={Register}/>
         </Switch>
       </BrowserRouter>
     </Fragment>
