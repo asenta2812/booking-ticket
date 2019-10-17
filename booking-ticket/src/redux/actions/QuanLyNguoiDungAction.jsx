@@ -17,7 +17,6 @@ export const layDanhSachLoaiNguoiDungAction =()=> {
         })
     }
 }
-//còn truyên biến vào để post lên API
 export const dangKyNguoiDungAction =(nguoiDK) => {
     return dispatch => {
         axios({
