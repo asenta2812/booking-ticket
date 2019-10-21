@@ -2,7 +2,8 @@ import { actionTypes } from "../constants/QuanLyPhimConstants";
 
 const initialState = {
     mangPhim: [],
-    mangRap: []
+    mangRap: [],
+    mangPhimTheoRap: []
 }
 
 export const QuanLyPhimReducer = (state = initialState, action) => {
@@ -14,6 +15,10 @@ export const QuanLyPhimReducer = (state = initialState, action) => {
         }
         case actionTypes.LAY_DANH_SACH_RAP: {
             state.mangRap = action.mangRap
+            return { ...state }
+        }
+        case actionTypes.LAY_DANH_SACH_PHIM_THEO_RAP: {
+            state.mangPhimTheoRap = action.mangPhimTheoRap
             return { ...state }
         }
         default:

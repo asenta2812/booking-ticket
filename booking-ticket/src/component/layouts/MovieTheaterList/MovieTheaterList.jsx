@@ -9,7 +9,7 @@ export default class MovieTheaterList extends Component {
                 <div className="movietheaterItems" key={index}>
                     <div className="row">
                         <div className="col-md-4">
-                            <img src={rap.logo} alt="" width={100}/>
+                            <img src={rap.logo} alt="" width={100} />
                         </div>
                         <div className="col-md-8">
                             <h3 className="card-title">
@@ -22,6 +22,7 @@ export default class MovieTheaterList extends Component {
         })
     }
     render() {
+        console.log(this.props.mangRap)
         return (
             <div>
                 {this.renderRap()}
