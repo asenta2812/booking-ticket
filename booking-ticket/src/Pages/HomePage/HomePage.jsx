@@ -1,43 +1,34 @@
-import React, { Component  } from 'react'
+import React, { Component } from 'react'
 import Container from '@material-ui/core/Container'
 import { connect } from 'react-redux'
 import { layDanhSachPhim1Actions, layThongTinRapAction, layDanhSachPhimTheoRapAction } from '../../redux/actions/QuanLyPhimActions'
 import MovieList from '../../component/layouts/MovieList/MovieList';
 import MovieTheaterList from '../../component/layouts/MovieTheaterList/MovieTheaterList';
-import FilmOfMovieTheater from '../../component/layouts/FilmOfMovieTheater/FilmOfMovieTheater';
+// import FilmOfMovieTheater from '../../component/layouts/FilmOfMovieTheater/FilmOfMovieTheater';
 
 class HomePage extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            maHeThongRap: 'cinestar' 
-        }
-    }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.layDanhSachPhim1Actions();
         this.props.layThongTinRap();
     }
+
     render() {
-        console.log(this.state)
+        if (!this.props.mangRap[0])
+            return <div></div>
         return (
             <div>
                 <Container>
                     <MovieList mangPhim={this.props.mangPhim}></MovieList>
-                    <div className="row">
-                        <div className="col-md-5">
-                            <MovieTheaterList  mangRap={this.props.mangRap}></MovieTheaterList>
-                        </div>
-                        <div className="col-md-7">
-                            <FilmOfMovieTheater maHeThongRap = {this.state.maHeThongRap} layDanhSachPhimTheoRap = {this.props.layDanhSachPhimTheoRap}></FilmOfMovieTheater>
-                        </div>
-                    </div>
+
+                    <MovieTheaterList mangRap={this.props.mangRap} ></MovieTheaterList>
                 </Container>
             </div>
         )
     }
 }
+
 
 const mapStateToProps = (state) => ({
     mangPhim: state.QuanLyPhimReducer.mangPhim,
@@ -51,9 +42,6 @@ const mapDispatchToProps = (dispatch) => {
         },
         layThongTinRap: () => {
             dispatch(layThongTinRapAction());
-        },
-        layDanhSachPhimTheoRap: (maHeThongRap) => {
-            dispatch(layDanhSachPhimTheoRapAction(maHeThongRap));
         }
     }
 }

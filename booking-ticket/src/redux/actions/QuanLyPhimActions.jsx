@@ -27,9 +27,8 @@ export const layThongTinRapAction =()=> {
             dispatch({
                 type:actionTypes.LAY_DANH_SACH_RAP,
                 mangRap:result.data
-
             })
-            console.log(result.data)
+            // console.log(result.data)
         }).catch( err => {
             console.log(err.response.data)
         })
@@ -43,9 +42,9 @@ export const layDanhSachPhimTheoRapAction = (maHeThongRap) => {
         }).then(result => {
             dispatch({
                 type:actionTypes.LAY_DANH_SACH_PHIM_THEO_RAP,
-                mangPhimTheoRap:result.data
+                mangHeThongRap:result.data
             })
-            console.log(result.data)
+            // console.log(result.data)
         }).catch(err => {
             console.log(err.response.data)
         })
