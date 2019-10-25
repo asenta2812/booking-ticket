@@ -42,24 +42,24 @@ class Register extends Component {
         if (name === 'email') {
             let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             if (!regex.test(value)) {
-                err += 'Email không đúng định dạng !';
+                err += ' Email không đúng định dạng !';
             }
         }
         if (name === 'soDt') {
             let regex = /(09|01[2|6|8|9])+([0-9]{8})\b/;
             if (!regex.test(value)) {
-                err += 'Số điện thoại không đúng định dạng !';
+                err += ' Số điện thoại không đúng định dạng !';
             }
         }
         if(name === 'hoTen') {
             let regex = /[^a-z0-9A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]/u;
             if(!regex.test(value)) {
-                err += ' test !';
+                err += ' Họ và tên không hợp lệ !';
             }
         }
         if(name === 'matKhau') {
             if(value.length < 5 || value.length > 13)
-            err += ' Mã nhân viên gồm 4 ký tự !';
+            err += ' Mật khẩu từ 6 - 12 kí tự !';
         }
         if(name === 'matKhau2') {
             if(value !== this.state.nguoiDK.matKhau) {
@@ -88,6 +88,7 @@ class Register extends Component {
     }
     renderLoaiNguoiDung = () => {
         return this.props.mangLoaiNguoiDung.map((nguoiDung, index) => {
+            if(nguoiDung.maLoaiNguoiDung !== "QuanTri")
             return <option key={index} value={nguoiDung.maLoaiNguoiDung}>{nguoiDung.tenLoai}</option>
         })
     }

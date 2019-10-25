@@ -8,9 +8,9 @@ import AdminPage from "./Pages/AdminPage/AdminPage"
 import { AdminTemplate } from "./Templates/AdminTemplate/AdminTemplate";
 import LoginAdmin from "./Pages/LoginPageAdmin/LoginAdmin";
 import Register from "./component/functions/Register/Register";
+import Login from "./component/functions/Login/Login";
 import AdminFilms from "./Pages/AdminPage/AdminFilm/AdminFilms";
 import AdminUser from "./Pages/AdminPage/AdminUser/AdminUser";
-
 function App() {
   return (
     <Fragment>
@@ -25,6 +25,7 @@ function App() {
           <AdminTemplate exact path="/trangquanly/nguoidung" Component={AdminUser}/>
           <Route exact path="/quanly" component={LoginAdmin}/>
           <Route exact path="/dangky" component={Register}/>
+          <Route exact path="/dangnhap" component={Login}/>
         </Switch>
       </BrowserRouter>
     </Fragment>

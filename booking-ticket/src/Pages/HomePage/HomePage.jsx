@@ -1,29 +1,34 @@
-import React, { Component, useEffect } from 'react'
+import React, { Component } from 'react'
 import Container from '@material-ui/core/Container'
 import { connect } from 'react-redux'
-import { layDanhSachPhim1Actions, layThongTinRapAction } from '../../redux/actions/QuanLyPhimActions'
+import { layDanhSachPhim1Actions, layThongTinRapAction, layDanhSachPhimTheoRapAction } from '../../redux/actions/QuanLyPhimActions'
 import MovieList from '../../component/layouts/MovieList/MovieList';
 import MovieTheaterList from '../../component/layouts/MovieTheaterList/MovieTheaterList';
-function HomePage(props) {
+// import FilmOfMovieTheater from '../../component/layouts/FilmOfMovieTheater/FilmOfMovieTheater';
 
-    useEffect(() => {
-        props.layDanhSachPhim1Actions();
-        props.layThongTinRap();
-    }, [])
-    console.log(props.mangRap)
-    return (
-        <div>
-            <Container>
-                <MovieList mangPhim={props.mangPhim}></MovieList>
-                <div className="row">
-                    <div className="col-md-5">
-                        <MovieTheaterList mangRap={props.mangRap}></MovieTheaterList>
-                    </div>
-                </div>
-            </Container>
-        </div>
-    )
+class HomePage extends Component {
+
+
+    componentDidMount() {
+        this.props.layDanhSachPhim1Actions();
+        this.props.layThongTinRap();
+    }
+
+    render() {
+        if (!this.props.mangRap[0])
+            return <div></div>
+        return (
+            <div>
+                <Container>
+                    <MovieList mangPhim={this.props.mangPhim}></MovieList>
+
+                    <MovieTheaterList mangRap={this.props.mangRap} ></MovieTheaterList>
+                </Container>
+            </div>
+        )
+    }
 }
+
 
 const mapStateToProps = (state) => ({
     mangPhim: state.QuanLyPhimReducer.mangPhim,
