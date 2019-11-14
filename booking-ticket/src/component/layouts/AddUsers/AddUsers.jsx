@@ -71,7 +71,7 @@ class AddUsers extends Component {
     }
     handleSubmit=(e)=>{
         e.preventDefault();
-        this.props.themNguoiDungAction(this.state.userAdd)
+        this.props.themNguoiDung(this.state.userAdd)
     }
     renderLoaiNguoiDung = () => {
         return this.props.mangLoaiNguoiDung.map((nguoiDung, index) => {

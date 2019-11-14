@@ -41,7 +41,7 @@ export const dangNhapAction = (thongTinNguoiDung) =>{
             console.log(result.data)
             localStorage.setItem(settings.data, JSON.stringify(result.data));
             localStorage.setItem(settings.token, result.data.accessToken);
-            // this.props.history.push(`/trangquanly`)
+            window.location.href= '/trangquanly';
         }).catch(error => {
             console.log(error.response.data);
             // swal.fire('thong bao dang nhap', error.response.data, 'error')
@@ -52,7 +52,10 @@ export const themNguoiDungAction=(userAdd)=> {
     return dispath => {
         axios({
             url: settings.domain + `/QuanLyNguoiDung/ThemNguoiDung`,
-            method: 'post'
+            method: 'post',
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem(settings.token)
+            }
         }).then(result=>{
             console.log(result.data)
         }).catch(errors=>{
