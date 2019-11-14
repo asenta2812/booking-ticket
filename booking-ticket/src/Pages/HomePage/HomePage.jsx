@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Container from '@material-ui/core/Container'
 import { connect } from 'react-redux'
-import { layDanhSachPhim1Actions, layThongTinRapAction, layDanhSachPhimTheoRapAction } from '../../redux/actions/QuanLyPhimActions'
+import { layDanhSachPhim1Actions, layThongTinRapAction } from '../../redux/actions/QuanLyPhimActions'
 import MovieList from '../../component/layouts/MovieList/MovieList';
 import MovieTheaterList from '../../component/layouts/MovieTheaterList/MovieTheaterList';
 // import FilmOfMovieTheater from '../../component/layouts/FilmOfMovieTheater/FilmOfMovieTheater';
@@ -9,7 +9,7 @@ import MovieTheaterList from '../../component/layouts/MovieTheaterList/MovieThea
 class HomePage extends Component {
 
 
-    componentDidMount() {
+    componentWillMount() {
         this.props.layDanhSachPhim1Actions();
         this.props.layThongTinRap();
     }
@@ -21,7 +21,6 @@ class HomePage extends Component {
             <div>
                 <Container>
                     <MovieList mangPhim={this.props.mangPhim}></MovieList>
-
                     <MovieTheaterList mangRap={this.props.mangRap} ></MovieTheaterList>
                 </Container>
             </div>
