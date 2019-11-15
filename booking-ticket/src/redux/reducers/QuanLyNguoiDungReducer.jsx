@@ -2,16 +2,17 @@ import { actionTypes } from "../constants/QuanLyNguoiDungConstants";
 
 const initialState = {
     data: {},
-    mangLoaiNguoiDung: []
+    mangLoaiNguoiDung: [],
+    listDSNguoiDung: []
 }
 
 export const QuanLyNguoiDungReducer = (state = initialState, action) => {
     switch (action.type) {
 
-        // case actionTypes.DANG_KY: {
-        //     state.objectNguoiDungDangKy = action.objectNguoiDungDangKy
-        //     return { ...state }
-        // }
+        case actionTypes.LAY_DANH_SACH_NGUOI_DUNG: {
+            state.listDSNguoiDung = action.listDSNguoiDung
+            return { ...state }
+        }
         case actionTypes.LOAI_NGUOI_DUNG: {
             state.mangLoaiNguoiDung = action.mangLoaiNguoiDung
             return { ...state }

@@ -10,6 +10,7 @@ const AdminLayout = (props) => {
     const { SubMenu, Item } = Menu;
 
     return <Fragment>
+        <HeaderAdmin />
         <Layout style={{ minHeight: '100vh' }}>
             {/* <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}> */}
             <Sider>
@@ -21,7 +22,7 @@ const AdminLayout = (props) => {
                     </Item>
                     <Item key="2">
                         <Icon type="user" />
-                        <Link to="/trangquanly/themnguoidung">Quản lý người dùng</Link>
+                        <Link to="/trangquanly/quanlynguoidung">Quản lý người dùng</Link>
                     </Item>
                     <Item key="3" >
                         <Icon type="desktop" />
@@ -36,7 +37,7 @@ const AdminLayout = (props) => {
                 </Menu>
             </Sider>
             <Layout>
-                <HeaderAdmin />
+
                 <Content style={{ margin: '0 16px' }}>
                     {props.children}
                 </Content>
