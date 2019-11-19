@@ -6,7 +6,10 @@ import PropTypes from 'prop-types';
 import { TweenOneGroup } from 'rc-tween-one';
 import { connect } from 'react-redux'
 import { QuanLyNguoiDungReducer } from '../../../redux/reducers/QuanLyNguoiDungReducer';
-import {layDanhSachNguoiDungAction, xoaNguoiDungAction } from '../../../redux/actions/QuanLyNguoiDungAction';
+import { layDanhSachNguoiDungAction, xoaNguoiDungAction, editNguoiDungAction, capNhatNguoiDungAction } from '../../../redux/actions/QuanLyNguoiDungAction';
+import FormEditUser from './FormEditUser';
+import { actionTypes } from '../../../redux/constants/QuanLyNguoiDungConstants';
+import AddUsers from '../AddUsers/AddUsers';
 
 const TableContext = React.createContext(false);
 
@@ -21,22 +24,31 @@ class ManagerUser extends Component {
     constructor(props) {
         super(props);
         this.columns = [
-            { title: 'Tai khoản', dataIndex: 'taiKhoan', key: 'taiKhoan' },
+            { title: 'Tài khoản', dataIndex: 'taiKhoan', key: 'taiKhoan' },
             { title: 'Mật khẩu', dataIndex: 'matKhau', key: 'matKhau' },
             { title: 'Họ tên', dataIndex: 'hoTen', key: 'hoTen' },
             { title: 'Email', dataIndex: 'email', key: 'email' },
             { title: 'Số điện thoại', dataIndex: 'soDt', key: 'soDt' },
             {
-                title: 'Thao tac',
+                title: '',
                 dataIndex: '',
                 key: 'x',
                 render: (text, record) => (
-                    <span
-                        className={`${this.props.className}-delete`}
-                        onClick={() => { this.props.xoaNguoiDung(record.taiKhoan); }}
-                    >
-                        Delete
-                    </span>
+                    <div>
+                        <button
+                            className="btn btn-danger mr-2"
+                            onClick={() => this.props.xoaNguoiDung(record.taiKhoan)}
+                        >
+                            Delete
+                    </button>
+                        <button
+                            className="btn btn-success" data-toggle="modal" data-target="#editUser"
+                            onClick={() => this.props.editNguoiDung(record)}
+                        >
+                            Edit
+                    </button>
+                    </div>
+
                 ),
             },
         ];
@@ -165,12 +177,13 @@ class ManagerUser extends Component {
                         </div> */}
                         <div className={`${this.props.className}-table-wrapper`}>
                             <div className={`${this.props.className}-action-bar`}>
-                                <Button type="primary" onClick={this.onAdd}>Add</Button>
+                                <Button type="primary" data-toggle="modal" data-target="#modelAddUser">Add</Button>
+                                <AddUsers/>
                             </div>
                             <TableContext.Provider value={this.state.isPageTween}>
                                 <Table
                                     columns={this.columns}
-                                    pagination={{ pageSize: 15 }}
+                                    pagination={{ pageSize: 12 }}
                                     dataSource={this.props.listDSNguoiDung}
                                     className={`${this.props.className}-table`}
                                     components={{ body: { wrapper: this.animTag } }}
@@ -180,6 +193,7 @@ class ManagerUser extends Component {
                         </div>
                     </div>
                 </div>
+                <FormEditUser/>
             </div>
         )
     }
@@ -188,14 +202,24 @@ const mapStateToProps = (state) => ({
     listDSNguoiDung: state.QuanLyNguoiDungReducer.listDSNguoiDung
 })
 
-const mapDispatchToProps = (dispatch) =>{
-    return{
+const mapDispatchToProps = (dispatch) => {
+    return {
         layDanhSachNguoiDung: () => {
             dispatch(layDanhSachNguoiDungAction())
         },
         xoaNguoiDung: (taiKhoan) => {
             dispatch(xoaNguoiDungAction(taiKhoan))
+        },
+        editNguoiDung: (userEdit) => {
+            let action = {
+                type: actionTypes.CHINH_SUA_NGUOI_DUNG,
+                userEdit
+            }
+            dispatch(action)
+        },
+        capNhatNguoiDung: (userSave) => {
+            dispatch(capNhatNguoiDungAction(userSave))
         }
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(ManagerUser)
+export default connect(mapStateToProps, mapDispatchToProps)(ManagerUser)

@@ -1,9 +1,19 @@
 import { actionTypes } from "../constants/QuanLyNguoiDungConstants";
+import { settings } from "../../common/Config/Settings";
 
 const initialState = {
     data: {},
     mangLoaiNguoiDung: [],
-    listDSNguoiDung: []
+    listDSNguoiDung: [],
+    userEdit: {
+        taiKhoan: '',
+        matKhau: '',
+        email: '',
+        soDt: '',
+        maNhom: '',
+        maLoaiNguoiDung: '',
+        hoTen: ''
+    }
 }
 
 export const QuanLyNguoiDungReducer = (state = initialState, action) => {
@@ -15,6 +25,10 @@ export const QuanLyNguoiDungReducer = (state = initialState, action) => {
         }
         case actionTypes.LOAI_NGUOI_DUNG: {
             state.mangLoaiNguoiDung = action.mangLoaiNguoiDung
+            return { ...state }
+        }
+        case actionTypes.CHINH_SUA_NGUOI_DUNG : {
+            state.userEdit = action.userEdit;
             return { ...state }
         }
         default:

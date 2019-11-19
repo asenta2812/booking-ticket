@@ -49,15 +49,15 @@ class AddUsers extends Component {
                 err += ' Số điện thoại không đúng định dạng !';
             }
         }
-        if(name === 'hoTen') {
+        if (name === 'hoTen') {
             let regex = /[^a-z0-9A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]/u;
-            if(!regex.test(value)) {
+            if (!regex.test(value)) {
                 err += ' Họ và tên không hợp lệ !';
             }
         }
-        if(name === 'matKhau') {
-            if(value.length < 5 || value.length > 13)
-            err += ' Mật khẩu từ 6 - 12 kí tự !';
+        if (name === 'matKhau') {
+            if (value.length < 5 || value.length > 13)
+                err += ' Mật khẩu từ 6 - 12 kí tự !';
         }
         // if(name === 'matKhau2') {
         //     if(value !== this.state.userAdd.matKhau) {
@@ -69,7 +69,7 @@ class AddUsers extends Component {
             errors: { ...this.state.errors, [name]: err }
         })
     }
-    handleSubmit=(e)=>{
+    handleSubmit = (e) => {
         e.preventDefault();
         this.props.themNguoiDung(this.state.userAdd)
     }
@@ -79,57 +79,67 @@ class AddUsers extends Component {
             return <option key={index} value={nguoiDung.maLoaiNguoiDung}>{nguoiDung.tenLoai}</option>
         })
     }
-    handleChange=(e)=>{
-        let {name,value} = e.target;
+    handleChange = (e) => {
+        let { name, value } = e.target;
         this.setState({
-            userAdd: {...this.state.userAdd, [name]:value}
-        },()=>{
+            userAdd: { ...this.state.userAdd, [name]: value }
+        }, () => {
             console.log(this.state.userAdd)
         })
     }
     render() {
         return (
-            <div className="register-user">
-                <div className="row">
-                    <div className="col-6"></div>
-                    <div className="col-6">
-                        <h3 className="title-form">Thêm người dùng</h3>
-                        <form action="" onSubmit={this.handleSubmit}>
-                            <div className="form-group">
-                                <label >Tài khoản</label>
-                                <input type="text" name="taiKhoan" id="taiKhoan"  className="form-control" value={this.state.userAdd.taiKhoan} onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
-                                {this.state.errors.taiKhoan != '' ? <div className="alert alert-danger">{this.state.errors.taiKhoan}</div> : ''}
+            <div>
+                <div className="modal fade" id="modelAddUser" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title">Thêm người dùng</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
                             </div>
-                            <div className="form-group">
-                                <label >Loại người dùng</label>
-                                <select className="form-control" name="maLoaiNguoiDung" value={this.state.userAdd.maLoaiNguoiDung} id="maLoaiNguoiDung" onChange={this.handleChange}>
-                                    {this.renderLoaiNguoiDung()}
-                                </select>
+                            <div className="modal-body">
+                                <div className="register-user">
+                                    <form action="" onSubmit={this.handleSubmit}>
+                                        <div className="form-group">
+                                            <label >Tài khoản</label>
+                                            <input type="text" name="taiKhoan" id="taiKhoan" className="form-control" value={this.state.userAdd.taiKhoan} onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
+                                            {this.state.errors.taiKhoan != '' ? <div className="alert alert-danger">{this.state.errors.taiKhoan}</div> : ''}
+                                        </div>
+                                        <div className="form-group">
+                                            <label >Loại người dùng</label>
+                                            <select className="form-control" name="maLoaiNguoiDung" value={this.state.userAdd.maLoaiNguoiDung} id="maLoaiNguoiDung" onChange={this.handleChange}>
+                                                {this.renderLoaiNguoiDung()}
+                                            </select>
+                                        </div>
+                                        <div className="form-group">
+                                            <label >Mật khẩu</label>
+                                            <input type="text" name="matKhau" id="matKhau" value={this.state.userAdd.matKhau} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
+                                            {this.state.errors.matKhau != '' ? <div className="alert alert-danger">{this.state.errors.matKhau}</div> : ''}
+                                        </div>
+                                        <div className="form-group">
+                                            <label >Họ và tên</label>
+                                            <input type="text" name="hoTen" id="hoTen" value={this.state.userAdd.hoTen} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
+                                            {this.state.errors.hoTen != '' ? <div className="alert alert-danger">{this.state.errors.hoTen}</div> : ''}
+                                        </div>
+                                        <div className="form-group">
+                                            <label >Email</label>
+                                            <input type="text" name="email" id="email" value={this.state.userAdd.email} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
+                                            {this.state.errors.email != '' ? <div className="alert alert-danger">{this.state.errors.email}</div> : ''}
+                                        </div>
+                                        <div className="form-group">
+                                            <label >Số điện thoại</label>
+                                            <input type="text" name="soDt" id="soDt" value={this.state.userAdd.soDt} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
+                                            {this.state.errors.soDt != '' ? <div className="alert alert-danger">{this.state.errors.soDt}</div> : ''}
+                                        </div>
+                                        <div className="form-group">
+                                            <button className="btn btn-success">Thêm</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                            <div className="form-group">
-                                <label >Mật khẩu</label>
-                                <input type="text" name="matKhau" id="matKhau" value={this.state.userAdd.matKhau} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors}/>
-                                {this.state.errors.matKhau != '' ? <div className="alert alert-danger">{this.state.errors.matKhau}</div> : ''}
-                            </div>
-                            <div className="form-group">
-                                <label >Họ và tên</label>
-                                <input type="text" name="hoTen" id="hoTen" value={this.state.userAdd.hoTen} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
-                                {this.state.errors.hoTen != '' ? <div className="alert alert-danger">{this.state.errors.hoTen}</div> : ''}
-                            </div>
-                            <div className="form-group">
-                                <label >Email</label>
-                                <input type="text" name="email" id="email" value={this.state.userAdd.email} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
-                                {this.state.errors.email != '' ? <div className="alert alert-danger">{this.state.errors.email}</div> : ''}
-                            </div>
-                            <div className="form-group">
-                                <label >Số điện thoại</label>
-                                <input type="text" name="soDt" id="soDt" value={this.state.userAdd.soDt} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
-                                {this.state.errors.soDt != '' ? <div className="alert alert-danger">{this.state.errors.soDt}</div> : ''}
-                            </div>
-                            <div className="form-group">
-                                <button className="btn btn-success">Thêm</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -140,9 +150,9 @@ const mapStateToProps = (state) => ({
     mangLoaiNguoiDung: state.QuanLyNguoiDungReducer.mangLoaiNguoiDung
 })
 
-const mapDispatchToProps = (dispatch)=> {
+const mapDispatchToProps = (dispatch) => {
     return {
-        themNguoiDung: (userAdd)=>{
+        themNguoiDung: (userAdd) => {
             dispatch(themNguoiDungAction(userAdd))
         },
         layDanhSachNguoiDung: () => {
@@ -150,4 +160,4 @@ const mapDispatchToProps = (dispatch)=> {
         }
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(AddUsers)
+export default connect(mapStateToProps, mapDispatchToProps)(AddUsers)

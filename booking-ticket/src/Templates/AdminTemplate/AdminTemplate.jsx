@@ -44,9 +44,6 @@ const AdminLayout = (props) => {
                 <FooterAdmin />
             </Layout>
         </Layout>
-
-
-
     </Fragment>
 }
 export const AdminTemplate = ({ Component, ...props }) => (

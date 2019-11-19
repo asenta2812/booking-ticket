@@ -25,7 +25,7 @@ function App() {
           <AdminTemplate exact path="/trangquanly/themphim" Component={AddFilm}/>
           <AdminTemplate exact path="/trangquanly/themnguoidung" Component={AddUsers}/>
           <AdminTemplate exact path="/trangquanly/quanlynguoidung" Component={ManagerUser}/>
-          <Route exact path="/quanly" component={LoginAdmin}/>
+          {/* <Route exact path="/quanly" component={LoginAdmin}/> */}
           <Route exact path="/dangky" component={Register}/>
           <Route exact path="/dangnhap" component={Login}/>
         </Switch>

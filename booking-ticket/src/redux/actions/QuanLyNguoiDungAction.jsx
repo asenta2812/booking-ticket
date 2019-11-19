@@ -2,6 +2,7 @@ import { settings } from "../../common/Config/Settings";
 import axios from "axios";
 import { actionTypes } from "../constants/QuanLyNguoiDungConstants";
 // import { BrowserRouter, Switch ,Route} from "react-router-dom";
+import swal from 'sweetalert2';
 
 export const layDanhSachLoaiNguoiDungAction = () => {
     return dispatch => {
@@ -33,12 +34,12 @@ export const dangKyNguoiDungAction = (nguoiDK) => {
 }
 export const dangNhapAction = (thongTinNguoiDung) => {
     return dispatch => {
+        console.log(thongTinNguoiDung)
         axios({
             url: settings.domain + `/QuanLyNguoiDung/DangNhap`,
             method: 'POST',
             data: thongTinNguoiDung
         }).then(result => {
-            
             localStorage.setItem(settings.data, JSON.stringify(result.data));
             localStorage.setItem(settings.token, result.data.accessToken);
             console.log(result.data)
@@ -91,8 +92,32 @@ export const xoaNguoiDungAction = (taiKhoan) => {
             }
         }).then(result => {
             console.log(result.data)
-            this.setState({ isPageTween: false });
+            window.location.reload();
+            // this.setState({ isPageTween: false });
         }).catch(err => {
+            console.log(err.response.data)
+        })
+    }
+}
+// export const editNguoiDungAction = (userEdit)=>{
+//     return (
+//             userEdit
+//     )
+// }
+export const capNhatNguoiDungAction =(userSave) => {
+    return dispatch => {
+        axios({
+            url: settings.domain + `/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
+            method: 'PUT',
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem(settings.token)
+            },
+            data: {...userSave,maNhom: settings.groupID}
+        }).then(result => {
+            console.log(result.data)
+            // swal.fire('Cập nhật thành công', error.response.data, 'success')
+            window.location.reload();
+        }).catch(err=>{
             console.log(err.response.data)
         })
     }
