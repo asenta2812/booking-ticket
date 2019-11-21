@@ -92,8 +92,8 @@ export const xoaNguoiDungAction = (taiKhoan) => {
             }
         }).then(result => {
             console.log(result.data)
-            window.location.reload();
             // this.setState({ isPageTween: false });
+            window.location.reload();
         }).catch(err => {
             console.log(err.response.data)
         })

@@ -152,7 +152,6 @@ class ManagerUser extends Component {
         });
     };
     render() {
-        console.log(this.props)
         return (
             <div>
                 <div className={`${this.props.className}-wrapper`}>

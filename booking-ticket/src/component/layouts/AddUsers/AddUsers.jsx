@@ -59,12 +59,6 @@ class AddUsers extends Component {
             if (value.length < 5 || value.length > 13)
                 err += ' Mật khẩu từ 6 - 12 kí tự !';
         }
-        // if(name === 'matKhau2') {
-        //     if(value !== this.state.userAdd.matKhau) {
-        //         err += 'Mật khẩu đó không khớp. Hãy thử lại!';
-        //     }
-        //     else err += '';
-        // }
         this.setState({
             errors: { ...this.state.errors, [name]: err }
         })
@@ -75,7 +69,6 @@ class AddUsers extends Component {
     }
     renderLoaiNguoiDung = () => {
         return this.props.mangLoaiNguoiDung.map((nguoiDung, index) => {
-            // if(nguoiDung.maLoaiNguoiDung !== "QuanTri")
             return <option key={index} value={nguoiDung.maLoaiNguoiDung}>{nguoiDung.tenLoai}</option>
         })
     }
