@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Table from 'antd/lib/table';
-import Button from 'antd/lib/button';
+// import Table from 'antd/lib/table';
+// import Button from 'antd/lib/button';
 import QueueAnim from 'rc-queue-anim';
 import PropTypes from 'prop-types';
 import { TweenOneGroup } from 'rc-tween-one';
@@ -10,6 +10,9 @@ import { layDanhSachNguoiDungAction, xoaNguoiDungAction, editNguoiDungAction, ca
 import FormEditUser from './FormEditUser';
 import { actionTypes } from '../../../redux/constants/QuanLyNguoiDungConstants';
 import AddUsers from '../AddUsers/AddUsers';
+import { Table, Input, Button, Icon } from 'antd';
+import Highlighter from 'react-highlight-words';
+
 
 const TableContext = React.createContext(false);
 
@@ -23,35 +26,9 @@ class ManagerUser extends Component {
     };
     constructor(props) {
         super(props);
-        this.columns = [
-            { title: 'Tài khoản', dataIndex: 'taiKhoan', key: 'taiKhoan' },
-            { title: 'Mật khẩu', dataIndex: 'matKhau', key: 'matKhau' },
-            { title: 'Họ tên', dataIndex: 'hoTen', key: 'hoTen' },
-            { title: 'Email', dataIndex: 'email', key: 'email' },
-            { title: 'Số điện thoại', dataIndex: 'soDt', key: 'soDt' },
-            {
-                title: '',
-                dataIndex: '',
-                key: 'x',
-                render: (text, record) => (
-                    <div>
-                        <button
-                            className="btn btn-danger mr-2"
-                            onClick={() => this.props.xoaNguoiDung(record.taiKhoan)}
-                        >
-                            Delete
-                    </button>
-                        <button
-                            className="btn btn-success" data-toggle="modal" data-target="#editUser"
-                            onClick={() => this.props.editNguoiDung(record)}
-                        >
-                            Edit
-                    </button>
-                    </div>
-
-                ),
-            },
-        ];
+        this.state = {
+            isPageTween: false,
+        };
         this.enterAnim = [
             {
                 opacity: 0, x: 30, backgroundColor: '#fffeee', duration: 0,
@@ -111,47 +88,45 @@ class ManagerUser extends Component {
                 </TableContext.Consumer>
             );
         };
-
-        this.state = {
-            isPageTween: false,
-        };
     }
-
     componentWillMount() {
         this.props.layDanhSachNguoiDung();
     }
-    onEnd = (e) => {
-        const dom = e.target;
-        dom.style.height = 'auto';
-    }
-
-    onAdd = () => {
-        const { data } = this.state;
-        const i = Math.round(Math.random() * (this.data.length - 1));
-        data.unshift({
-            key: Date.now(),
-            name: this.data[i].name,
-            age: this.data[i].age,
-            address: this.data[i].address,
-        });
-        this.setState({
-            data,
-            isPageTween: false,
-        });
-    };
-
-    // onDelete = (key, e) => {
-    //     e.preventDefault();
-    //     const data = this.state.data.filter(item => item.key !== key);
-    //     this.setState({ data, isPageTween: false });
-    // }
-
     pageChange = () => {
         this.setState({
             isPageTween: true,
         });
     };
     render() {
+        const columns = [
+            { title: 'Tài khoản', dataIndex: 'taiKhoan', key: 'taiKhoan' },
+            { title: 'Mật khẩu', dataIndex: 'matKhau', key: 'matKhau'  },
+            { title: 'Họ tên', dataIndex: 'hoTen', key: 'hoTen' },
+            { title: 'Email', dataIndex: 'email', key: 'email' },
+            { title: 'Số điện thoại', dataIndex: 'soDt', key: 'soDt' },
+            {
+                title: '',
+                dataIndex: '',
+                key: 'x',
+                render: (text, record) => (
+                    <div>
+                        <button
+                            className="btn btn-danger mr-2"
+                            onClick={() => this.props.xoaNguoiDung(record.taiKhoan)}
+                        >
+                            Delete
+                    </button>
+                        <button
+                            className="btn btn-success" data-toggle="modal" data-target="#editUser"
+                            onClick={() => this.props.editNguoiDung(record)}
+                        >
+                            Edit
+                    </button>
+                    </div>
+
+                ),
+            },
+        ];
         return (
             <div>
                 <div className={`${this.props.className}-wrapper`}>
@@ -177,11 +152,11 @@ class ManagerUser extends Component {
                         <div className={`${this.props.className}-table-wrapper`}>
                             <div className={`${this.props.className}-action-bar`}>
                                 <Button type="primary" data-toggle="modal" data-target="#modelAddUser">Add</Button>
-                                <AddUsers/>
+                                <AddUsers />
                             </div>
                             <TableContext.Provider value={this.state.isPageTween}>
                                 <Table
-                                    columns={this.columns}
+                                    columns={columns}
                                     pagination={{ pageSize: 12 }}
                                     dataSource={this.props.listDSNguoiDung}
                                     className={`${this.props.className}-table`}
@@ -192,7 +167,7 @@ class ManagerUser extends Component {
                         </div>
                     </div>
                 </div>
-                <FormEditUser/>
+                <FormEditUser />
             </div>
         )
     }
@@ -200,7 +175,6 @@ class ManagerUser extends Component {
 const mapStateToProps = (state) => ({
     listDSNguoiDung: state.QuanLyNguoiDungReducer.listDSNguoiDung
 })
-
 const mapDispatchToProps = (dispatch) => {
     return {
         layDanhSachNguoiDung: () => {
