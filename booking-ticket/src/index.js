@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import './assets/css/sb-admin-2.css';
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
@@ -8,7 +7,7 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { rootReducers } from "./redux/reducers/index";
 import reduxThunk from "redux-thunk";
-
+import { DatePicker } from 'antd';
 
 const store = createStore(rootReducers, applyMiddleware(reduxThunk));
 

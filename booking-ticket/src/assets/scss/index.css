@@ -1,0 +1,75 @@
+body, html {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.title__h3 {
+  color: #212121;
+  font-size: 36px;
+  letter-spacing: 2px;
+  font-family: "Cabin", sans-serif;
+}
+
+.header__style {
+  background-color: #000000;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 50px;
+  width: 100%;
+}
+
+.login-admin {
+  background-image: url("./assets/images/bg-img-login-admin.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.login-admin .login-card {
+  width: 380px;
+  height: 555px;
+  background-color: rgba(255, 255, 255, 0.95);
+  display: block;
+  border-radius: 20px;
+  color: #212121;
+  padding: 20px 40px;
+  -webkit-box-shadow: 2px 0 1px 1px rgba(20, 23, 28, 0.1), 0 3px 1px 0 rgba(20, 23, 28, 0.1);
+          box-shadow: 2px 0 1px 1px rgba(20, 23, 28, 0.1), 0 3px 1px 0 rgba(20, 23, 28, 0.1);
+}
+
+.login-admin #standard-name {
+  width: 100%;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.login-admin .effect-17 {
+  border: 0;
+  padding: 4px 0;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+}
+
+.login-admin .effect-17 ~ .focus-border {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #4caf50;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+/*# sourceMappingURL=index.css.map */
