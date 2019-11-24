@@ -1,40 +1,36 @@
 import React, { Component } from 'react'
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default class SideBarAdmin extends Component {
     render() {
         return (
-            <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-                {/* Sidebar - Brand */}
-                <NavLink className="sidebar-brand d-flex align-items-center justify-content-center" to="/trangquanly">
-                    <div className="sidebar-brand-icon rotate-n-15">
-                        <i className="fas fa-laugh-wink" />
-                    </div>
-                    <div className="sidebar-brand-text mx-3">Trang Quản Lý</div>
-                </NavLink>
-                {/* Divider */}
-                <hr className="sidebar-divider mt-5 mb-1" />
-                {/* Nav Item - Dashboard */}
-                <li className="nav-item mb-3">
-                    <NavLink className="nav-link" to="/trangquanly/phim">
-                        <i className="fas mr-3 fa-tachometer-alt" />
-                        <span>Quản lý xem phim</span>
-                    </NavLink>
-                </li>
-                {/* Divider */}
-                <hr className="sidebar-divider" />
-                {/* Heading */}
-                <li className="nav-item">
-                    <NavLink className="nav-link" to="/trangquanly/nguoidung">
-                        <i className="fas mr-3 fa-tachometer-alt" />
-                        <span>Quản lý người dùng</span>
-                    </NavLink>
-                </li>
-                {/*                  
-                    <div className="text-center d-none d-md-inline">
-                        <button className="rounded-circle border-0" id="sidebarToggle" />
-                    </div> */}
-            </ul>
+            <div className="default-sidebar">
+                {/* Begin Side Navbar */}
+                <nav className="side-navbar box-scroll sidebar-scroll">
+                    {/* Begin Main Navigation */}
+                    <span className="heading">Quản lý</span>
+                    <ul className="list-unstyled">
+                        <li>
+                            <NavLink to="/trangquanly/phim" activeClassName="selected">
+                                <i className="la la-share-alt" />
+                                <span>Quản lý phim</span>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/trangquanly/nguoidung" activeClassName="selected">
+                                <i className="la la-font" />
+                                <span>Quản lý người dùng</span>
+                            </NavLink>
+                        </li>
+
+
+                    </ul>
+                    {/* End Main Navigation */}
+                </nav>
+                {/* End Side Navbar */}
+            </div>
+
+
         )
     }
 }

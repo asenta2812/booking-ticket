@@ -3,18 +3,28 @@ import HeaderAdmin from "../../component/layouts/Header/HeaderAdmin/HeaderAdmin"
 import FooterAdmin from "../../component/layouts/Footer/FooterAdmin/FooterAdmin"
 import { Route } from 'react-router-dom';
 import SideBarAdmin from "../../component/layouts/SideBarAdmin/SideBarAdmin";
+
 const AdminLayout = (props) => {
     return <Fragment>
-        <div id="wrapper">
-            <SideBarAdmin />
-            <div id="content-wrapper" className="d-flex flex-column">
-                <div id="content">
-                    <HeaderAdmin />
+        {/* Begin Preloader */}
+        <div id="preloader">
+            <div className="canvas">
+                <img src="assets/img/logo.png" alt="logo" className="loader-logo" />
+                <div className="spinner" />
+            </div>
+        </div>
+        {/* End Preloader */}
+
+        <div id="page">
+            <HeaderAdmin />
+            <div className="page-content d-flex align-items-stretch">
+                <SideBarAdmin />
+                <div className="content-inner">
                     <div className="container-fluid">
                         {props.children}
                     </div>
+                    <FooterAdmin />
                 </div>
-                <FooterAdmin />
             </div>
         </div>
     </Fragment>
