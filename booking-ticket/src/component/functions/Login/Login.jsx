@@ -7,18 +7,25 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            taiKhoan: '',
-            matKhau: ''
+            userLogin: {
+                taiKhoan: '',
+                matKhau: ''
+            }
+            
         }
     }
-    handelChang = (e) => {
-        let {value,name} = e.target;
-        this.setState({[name]:value})
+    handleChange=(e)=>{
+        let {name,value} = e.target;
+        this.setState({
+            userLogin: {...this.state.userLogin, [name]:value}
+        },()=>{
+            console.log(this.state.userLogin)
+        })
     }
     handleSubmit =(e)=> {
         e.preventDefault();
-        this.props.dangNhap(this.state);
-        console.log(this.state);
+        this.props.dangNhap(this.state.userLogin);
+        console.log(this.state.userLogin);
     }
     render() {
         return (

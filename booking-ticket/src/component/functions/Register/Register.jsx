@@ -103,7 +103,7 @@ class Register extends Component {
                         <form action="" onSubmit={this.handleSubmit}>
                             <div className="form-group">
                                 <label >Tài khoản</label>
-                                <input type="text" name="taiKhoan" id="taiKhoan" value={this.state.nguoiDK.taiKhoan} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
+                                <input type="text" name="taiKhoan" id="taiKhoan"  className="form-control" value={this.state.nguoiDK.taiKhoan} onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
                                 {this.state.errors.taiKhoan != '' ? <div className="alert alert-danger">{this.state.errors.taiKhoan}</div> : ''}
                             </div>
                             <div className="form-group">

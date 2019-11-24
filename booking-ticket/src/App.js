@@ -9,8 +9,11 @@ import { AdminTemplate } from "./Templates/AdminTemplate/AdminTemplate";
 import LoginAdmin from "./Pages/LoginPageAdmin/LoginAdmin";
 import Register from "./component/functions/Register/Register";
 import Login from "./component/functions/Login/Login";
-import AdminFilms from "./Pages/AdminPage/AdminFilm/AdminFilms";
-import AdminUser from "./Pages/AdminPage/AdminUser/AdminUser";
+
+import AddFilm from "./component/layouts/AddFilm/AddFilm";
+import AddUsers from "./component/layouts/AddUsers/AddUsers";
+import ManagerUser from "./component/layouts/ManagerUsers/ManagerUser";
+
 function App() {
   return (
     <Fragment>
@@ -21,9 +24,12 @@ function App() {
           <HomeTemplate exact path="/chitietphim" Component={DetailMovie} />
           <HomeTemplate exact path="/chitietrap" Component={DetailMovieTheater}/>
           <AdminTemplate exact path="/trangquanly" Component={AdminPage}/>
-          <AdminTemplate exact path="/trangquanly/phim" Component={AdminFilms}/>
-          <AdminTemplate exact path="/trangquanly/nguoidung" Component={AdminUser}/>
-          <Route exact path="/quanly" component={LoginAdmin}/>
+
+          <AdminTemplate exact path="/trangquanly/themphim" Component={AddFilm}/>
+          <AdminTemplate exact path="/trangquanly/themnguoidung" Component={AddUsers}/>
+          <AdminTemplate exact path="/trangquanly/quanlynguoidung" Component={ManagerUser}/>
+          {/* <Route exact path="/quanly" component={LoginAdmin}/> */}
+
           <Route exact path="/dangky" component={Register}/>
           <Route exact path="/dangnhap" component={Login}/>
         </Switch>

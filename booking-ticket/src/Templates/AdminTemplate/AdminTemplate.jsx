@@ -1,32 +1,52 @@
 import React, { Fragment } from "react"
 import HeaderAdmin from "../../component/layouts/Header/HeaderAdmin/HeaderAdmin"
 import FooterAdmin from "../../component/layouts/Footer/FooterAdmin/FooterAdmin"
-import { Route } from 'react-router-dom';
-import SideBarAdmin from "../../component/layouts/SideBarAdmin/SideBarAdmin";
+import { Route, Link } from 'react-router-dom';
+import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import 'antd/dist/antd.css';
+
 
 const AdminLayout = (props) => {
-    return <Fragment>
-        {/* Begin Preloader */}
-        <div id="preloader">
-            <div className="canvas">
-                <img src="assets/img/logo.png" alt="logo" className="loader-logo" />
-                <div className="spinner" />
-            </div>
-        </div>
-        {/* End Preloader */}
+    const { Header, Content, Footer, Sider } = Layout;
+    const { SubMenu, Item } = Menu;
 
-        <div id="page">
-            <HeaderAdmin />
-            <div className="page-content d-flex align-items-stretch">
-                <SideBarAdmin />
-                <div className="content-inner">
-                    <div className="container-fluid">
-                        {props.children}
-                    </div>
-                    <FooterAdmin />
-                </div>
-            </div>
-        </div>
+    return <Fragment>
+
+        <HeaderAdmin />
+        <Layout style={{ minHeight: '100vh' }}>
+            {/* <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}> */}
+            <Sider>
+                <div className="logo" />
+                <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+                    <Item key="1">
+                        <Icon type="desktop" ></Icon>
+                        <Link to="/trangquanly/themphim">Quản lý phim</Link>
+                    </Item>
+                    <Item key="2">
+                        <Icon type="user" />
+                        <Link to="/trangquanly/quanlynguoidung">Quản lý người dùng</Link>
+                    </Item>
+                    <Item key="3" >
+                        <Icon type="desktop" />
+                        <span>Option 2</span>
+                    </Item>
+                    {/* <li className="nav-item active">
+                        <Link className="nav-link" to="/trangquanly/themphim">Trang chủ</Link>
+                    </li>
+                    <li className="nav-item active">
+                        <Link className="nav-link" to="/trangquanly/themnguoidung">Trang chủ</Link>
+                    </li> */}
+                </Menu>
+            </Sider>
+            <Layout>
+
+                <Content style={{ margin: '0 16px' }}>
+                    {props.children}
+                </Content>
+                <FooterAdmin />
+            </Layout>
+        </Layout>
+
     </Fragment>
 }
 export const AdminTemplate = ({ Component, ...props }) => (
