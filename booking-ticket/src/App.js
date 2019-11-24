@@ -12,6 +12,7 @@ import Login from "./component/functions/Login/Login";
 import AddFilm from "./component/layouts/AddFilm/AddFilm";
 import AddUsers from "./component/layouts/AddUsers/AddUsers";
 import ManagerUser from "./component/layouts/ManagerUsers/ManagerUser";
+import DetailUser from "./component/layouts/DetailUser/DetailUser";
 function App() {
   return (
     <Fragment>
@@ -25,9 +26,9 @@ function App() {
           <AdminTemplate exact path="/trangquanly/themphim" Component={AddFilm}/>
           <AdminTemplate exact path="/trangquanly/themnguoidung" Component={AddUsers}/>
           <AdminTemplate exact path="/trangquanly/quanlynguoidung" Component={ManagerUser}/>
+          <AdminTemplate exact path="/trangquanly/chitietnguoidung/:taiKhoan" Component={DetailUser}/>
           {/* <Route exact path="/quanly" component={LoginAdmin}/> */}
           <Route exact path="/dangky" component={Register}/>
-          <Route exact path="/dangnhap" component={Login}/>
         </Switch>
       </BrowserRouter>
     </Fragment>

@@ -48,8 +48,8 @@ const AdminLayout = (props) => {
 }
 export const AdminTemplate = ({ Component, ...props }) => (
     <Route {...props} render={propsComponent => (
-        <AdminLayout {...propsComponent}>
-            <Component />
+        <AdminLayout >
+            <Component {...propsComponent} />
         </AdminLayout>
     )} />
 )

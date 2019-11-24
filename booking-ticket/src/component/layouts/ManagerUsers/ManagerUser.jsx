@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import Table from 'antd/lib/table';
 // import Button from 'antd/lib/button';
+import {Link} from 'react-router-dom'
 import QueueAnim from 'rc-queue-anim';
 import PropTypes from 'prop-types';
 import { TweenOneGroup } from 'rc-tween-one';
@@ -131,13 +132,19 @@ class ManagerUser extends Component {
                             onClick={() => this.props.xoaNguoiDung(record.taiKhoan)}
                         >
                             Delete
-                    </button>
+                        </button>
                         <button
-                            className="btn btn-success" data-toggle="modal" data-target="#editUser"
+                            className="btn btn-success mr-2" data-toggle="modal" data-target="#editUser"
                             onClick={() => this.props.editNguoiDung(record)}
                         >
                             Edit
-                    </button>
+                        </button>
+                        <Link to={`chitietnguoidung/${record.taiKhoan}`}
+                            className="btn btn-primary" 
+                            
+                        >
+                            Detail
+                        </Link>
                     </div>
 
                 ),
