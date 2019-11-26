@@ -4,10 +4,15 @@ const initialState = {
     mangPhim: [],
     mangRap: [],
     mangHeThongRap: [],
+<<<<<<< HEAD
+    mangLichChieu: [],
+    dataPhim: {}
+=======
 
     mangLichChieu: [],
     dataPhim: {}
 
+>>>>>>> master
 }
 
 export const QuanLyPhimReducer = (state = initialState, action) => {

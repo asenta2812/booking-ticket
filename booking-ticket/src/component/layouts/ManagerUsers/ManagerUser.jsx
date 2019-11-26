@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 // import Table from 'antd/lib/table';
 // import Button from 'antd/lib/button';
+<<<<<<< HEAD
+import {Link} from 'react-router-dom'
+=======
+>>>>>>> master
 import QueueAnim from 'rc-queue-anim';
 import PropTypes from 'prop-types';
 import { TweenOneGroup } from 'rc-tween-one';
 import { connect } from 'react-redux'
 import { QuanLyNguoiDungReducer } from '../../../redux/reducers/QuanLyNguoiDungReducer';
+<<<<<<< HEAD
+import { layDanhSachNguoiDungAction, xoaNguoiDungAction, capNhatNguoiDungAction, timKiemNguoiDungAction } from '../../../redux/actions/QuanLyNguoiDungAction';
+=======
 import { layDanhSachNguoiDungAction, xoaNguoiDungAction, editNguoiDungAction, capNhatNguoiDungAction } from '../../../redux/actions/QuanLyNguoiDungAction';
+>>>>>>> master
 import FormEditUser from './FormEditUser';
 import { actionTypes } from '../../../redux/constants/QuanLyNguoiDungConstants';
 import AddUsers from '../AddUsers/AddUsers';
@@ -28,6 +36,10 @@ class ManagerUser extends Component {
         super(props);
         this.state = {
             isPageTween: false,
+<<<<<<< HEAD
+            searchKey: ''
+=======
+>>>>>>> master
         };
         this.enterAnim = [
             {
@@ -97,6 +109,24 @@ class ManagerUser extends Component {
             isPageTween: true,
         });
     };
+<<<<<<< HEAD
+    handleChange = (e) => {
+        this.setState({
+            searchKey : e.target.value
+        },()=>{
+            console.log(this.state.searchKey)
+        })
+    }
+    checkSearch = (searchKey)=>{
+        if(searchKey !== ''){
+            this.props.timKiemNguoiDung(searchKey)
+        }
+        else {
+            this.props.layDanhSachNguoiDung();
+        }
+    }
+=======
+>>>>>>> master
     render() {
         const columns = [
             { title: 'Tài khoản', dataIndex: 'taiKhoan', key: 'taiKhoan' },
@@ -115,6 +145,21 @@ class ManagerUser extends Component {
                             onClick={() => this.props.xoaNguoiDung(record.taiKhoan)}
                         >
                             Delete
+<<<<<<< HEAD
+                        </button>
+                        <button
+                            className="btn btn-success mr-2" data-toggle="modal" data-target="#editUser"
+                            onClick={() => this.props.editNguoiDung(record)}
+                        >
+                            Edit
+                        </button>
+                        <Link to={`chitietnguoidung/${record.taiKhoan}`}
+                            className="btn btn-primary" 
+                            
+                        >
+                            Detail
+                        </Link>
+=======
                     </button>
                         <button
                             className="btn btn-success" data-toggle="modal" data-target="#editUser"
@@ -122,6 +167,7 @@ class ManagerUser extends Component {
                         >
                             Edit
                     </button>
+>>>>>>> master
                     </div>
 
                 ),
@@ -150,6 +196,14 @@ class ManagerUser extends Component {
                             </QueueAnim>
                         </div> */}
                         <div className={`${this.props.className}-table-wrapper`}>
+<<<<<<< HEAD
+                            <div className="searchbox">
+                            <Icon type='search' />
+                                    <input type="text" name="searchKey" id="searchKey"  className="form-control" value = {this.state.searchKey} onChange={this.handleChange} onKeyUp={()=> this.checkSearch(this.state.searchKey.trim())} placeholder="Search"/>
+                                
+                            </div>
+=======
+>>>>>>> master
                             <div className={`${this.props.className}-action-bar`}>
                                 <Button type="primary" data-toggle="modal" data-target="#modelAddUser">Add</Button>
                                 <AddUsers />
@@ -192,6 +246,12 @@ const mapDispatchToProps = (dispatch) => {
         },
         capNhatNguoiDung: (userSave) => {
             dispatch(capNhatNguoiDungAction(userSave))
+<<<<<<< HEAD
+        },
+        timKiemNguoiDung: (searchKey) =>{
+            dispatch(timKiemNguoiDungAction(searchKey))
+=======
+>>>>>>> master
         }
     }
 }

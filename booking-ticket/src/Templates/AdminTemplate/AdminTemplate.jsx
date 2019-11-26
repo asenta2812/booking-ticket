@@ -5,13 +5,19 @@ import { Route, Link } from 'react-router-dom';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import 'antd/dist/antd.css';
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
 const AdminLayout = (props) => {
     const { Header, Content, Footer, Sider } = Layout;
     const { SubMenu, Item } = Menu;
 
     return <Fragment>
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
         <HeaderAdmin />
         <Layout style={{ minHeight: '100vh' }}>
             {/* <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}> */}
@@ -46,13 +52,16 @@ const AdminLayout = (props) => {
                 <FooterAdmin />
             </Layout>
         </Layout>
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
     </Fragment>
 }
 export const AdminTemplate = ({ Component, ...props }) => (
     <Route {...props} render={propsComponent => (
-        <AdminLayout {...propsComponent}>
-            <Component />
+        <AdminLayout >
+            <Component {...propsComponent} />
         </AdminLayout>
     )} />
 )

@@ -99,11 +99,14 @@ export const xoaNguoiDungAction = (taiKhoan) => {
         })
     }
 }
+<<<<<<< HEAD
+=======
 // export const editNguoiDungAction = (userEdit)=>{
 //     return (
 //             userEdit
 //     )
 // }
+>>>>>>> master
 export const capNhatNguoiDungAction =(userSave) => {
     return dispatch => {
         axios({
@@ -121,4 +124,39 @@ export const capNhatNguoiDungAction =(userSave) => {
             console.log(err.response.data)
         })
     }
+<<<<<<< HEAD
+}
+export const timKiemNguoiDungAction = (searchKey) =>{
+    return dispatch => {
+        axios({
+            url: settings.domain + `/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=${settings.groupID}&tuKhoa=${searchKey}`,
+            method: 'get'
+        }).then(result => {
+            dispatch({
+                type: actionTypes.TIM_KIEM_NGUOI_DUNG,
+                listDSNguoiDung: result.data
+            })
+        }).catch(err=>{
+            console.log(err.response.date)
+        })
+    }
+}
+export const thongTinTaiKhoanAction = (taiKhoan) => {
+    return dispatch => {
+        axios({
+            url: settings.domain + `/QuanLyNguoiDung/ThongTinTaiKhoan`,
+            // url: 'http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThongTinTaiKhoan',
+            method: 'POST',
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem(settings.token)
+            },
+            data: {"taiKhoan":taiKhoan}
+        }).then(result => {
+            console.log(result.data)
+        }).catch(err=>{
+            console.log(err.response.data)
+        })
+    }
+=======
+>>>>>>> master
 }

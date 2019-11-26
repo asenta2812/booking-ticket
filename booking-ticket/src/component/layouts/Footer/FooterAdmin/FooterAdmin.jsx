@@ -4,6 +4,9 @@ export default class FooterAdmin extends Component {
     render() {
         return (
             <div>
+<<<<<<< HEAD
+                
+=======
                 {/* Begin Page Footer*/}
                 <footer className="main-footer">
                     <div className="row">
@@ -24,6 +27,7 @@ export default class FooterAdmin extends Component {
                 </footer>
                 {/* End Page Footer */}
 
+>>>>>>> master
             </div>
         )
     }
