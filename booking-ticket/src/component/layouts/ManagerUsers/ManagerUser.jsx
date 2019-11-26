@@ -7,7 +7,9 @@ import PropTypes from 'prop-types';
 import { TweenOneGroup } from 'rc-tween-one';
 import { connect } from 'react-redux'
 import { QuanLyNguoiDungReducer } from '../../../redux/reducers/QuanLyNguoiDungReducer';
+
 import { layDanhSachNguoiDungAction, xoaNguoiDungAction, capNhatNguoiDungAction, timKiemNguoiDungAction } from '../../../redux/actions/QuanLyNguoiDungAction';
+
 import FormEditUser from './FormEditUser';
 import { actionTypes } from '../../../redux/constants/QuanLyNguoiDungConstants';
 import AddUsers from '../AddUsers/AddUsers';
@@ -29,7 +31,9 @@ class ManagerUser extends Component {
         super(props);
         this.state = {
             isPageTween: false,
+
             searchKey: ''
+
         };
         this.enterAnim = [
             {

@@ -99,11 +99,6 @@ export const xoaNguoiDungAction = (taiKhoan) => {
         })
     }
 }
-// export const editNguoiDungAction = (userEdit)=>{
-//     return (
-//             userEdit
-//     )
-// }
 export const capNhatNguoiDungAction =(userSave) => {
     return dispatch => {
         axios({
