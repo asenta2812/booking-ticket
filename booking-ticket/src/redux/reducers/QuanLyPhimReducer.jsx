@@ -4,15 +4,22 @@ const initialState = {
     mangPhim: [],
     mangRap: [],
     mangHeThongRap: [],
+<<<<<<< HEAD
     mangLichChieu: [],
     dataPhim: {}
+=======
+
+    mangLichChieu: [],
+    dataPhim: {}
+
+>>>>>>> master
 }
 
 export const QuanLyPhimReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case actionTypes.LAY_DANH_SACH_PHIM: {
-            state.mangPhim = action.mangPhim
+            state.mangPhim = action.mangPhim;
             return { ...state }
         }
         case actionTypes.LAY_DANH_SACH_RAP: {
@@ -26,6 +33,10 @@ export const QuanLyPhimReducer = (state = initialState, action) => {
         case actionTypes.LAY_THONG_TIN_LICH_CHIEU_HE_THONG_RAP: {
             state.mangHeThongRap = action.mangHeThongRap
             return { ...state }
+        }
+        case actionTypes.LAY_DANH_SACH_PHIM_THEO_TRANG:{
+            state.danhSachPhimTheoTrang = action.danhSachPhimTheoTrang
+            return {...state}
         }
         default:
             return state

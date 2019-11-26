@@ -99,6 +99,14 @@ export const xoaNguoiDungAction = (taiKhoan) => {
         })
     }
 }
+<<<<<<< HEAD
+=======
+// export const editNguoiDungAction = (userEdit)=>{
+//     return (
+//             userEdit
+//     )
+// }
+>>>>>>> master
 export const capNhatNguoiDungAction =(userSave) => {
     return dispatch => {
         axios({
@@ -116,6 +124,7 @@ export const capNhatNguoiDungAction =(userSave) => {
             console.log(err.response.data)
         })
     }
+<<<<<<< HEAD
 }
 export const timKiemNguoiDungAction = (searchKey) =>{
     return dispatch => {
@@ -148,4 +157,6 @@ export const thongTinTaiKhoanAction = (taiKhoan) => {
             console.log(err.response.data)
         })
     }
+=======
+>>>>>>> master
 }

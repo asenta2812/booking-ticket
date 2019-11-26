@@ -67,7 +67,11 @@ class AddFilm extends Component {
                         </div>
                         <div className="form-group col-md-6">
                             <label >Ngày khởi chiếu</label>
+<<<<<<< HEAD
                             <input type="text" name="ngayKhoiChieu" id className="form-control" value={this.state.phimAdd.ngayKhoiChieu} onChange={this.handleChange} />
+=======
+                            <input type="date" name="ngayKhoiChieu" id className="form-control" value={this.state.phimAdd.ngayKhoiChieu} onChange={this.handleChange} />
+>>>>>>> master
                         </div>
                         <div className="form-group col-md-6">
                             <label >Tên phim</label>
