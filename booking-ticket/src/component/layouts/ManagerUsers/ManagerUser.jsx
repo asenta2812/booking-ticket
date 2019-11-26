@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
 // import Table from 'antd/lib/table';
 // import Button from 'antd/lib/button';
-<<<<<<< HEAD
 import {Link} from 'react-router-dom'
-=======
->>>>>>> master
 import QueueAnim from 'rc-queue-anim';
 import PropTypes from 'prop-types';
 import { TweenOneGroup } from 'rc-tween-one';
 import { connect } from 'react-redux'
 import { QuanLyNguoiDungReducer } from '../../../redux/reducers/QuanLyNguoiDungReducer';
-<<<<<<< HEAD
+
 import { layDanhSachNguoiDungAction, xoaNguoiDungAction, capNhatNguoiDungAction, timKiemNguoiDungAction } from '../../../redux/actions/QuanLyNguoiDungAction';
-=======
-import { layDanhSachNguoiDungAction, xoaNguoiDungAction, editNguoiDungAction, capNhatNguoiDungAction } from '../../../redux/actions/QuanLyNguoiDungAction';
->>>>>>> master
+
 import FormEditUser from './FormEditUser';
 import { actionTypes } from '../../../redux/constants/QuanLyNguoiDungConstants';
 import AddUsers from '../AddUsers/AddUsers';
@@ -36,10 +31,9 @@ class ManagerUser extends Component {
         super(props);
         this.state = {
             isPageTween: false,
-<<<<<<< HEAD
+
             searchKey: ''
-=======
->>>>>>> master
+
         };
         this.enterAnim = [
             {

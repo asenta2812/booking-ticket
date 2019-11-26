@@ -2,6 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { dangKyNguoiDungAction, layDanhSachLoaiNguoiDungAction } from '../../../redux/actions/QuanLyNguoiDungAction';
 import { settings } from '../../../common/Config/Settings';
+import {
+    Form,
+    Input,
+    Tooltip,
+    Icon,
+    Cascader,
+    Select,
+    Row,
+    Col,
+    Checkbox,
+    Button,
+    AutoComplete,
+  } from 'antd';
+  
+  const { Option } = Select;
 
 class Register extends Component {
     constructor(props) {
