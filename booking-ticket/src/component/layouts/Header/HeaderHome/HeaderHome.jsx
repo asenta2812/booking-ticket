@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Avatar from '@material-ui/core/Avatar';
+import {NavLink} from "react-router-dom";
 export default class HeaderHome extends Component {
     render() {
         return (
@@ -28,9 +29,10 @@ export default class HeaderHome extends Component {
                                 </li>
                             </ul>
                             <form className="form-inline my-2 my-lg-0">
-                            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Đăng ký</button>
-                                <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Đăng nhập</button>
-                            </form>
+                                <NavLink className="btn btn-outline-success my-2 my-sm-0" to="/dangky">Đăng ký</NavLink>
+                                <NavLink className="btn btn-outline-primary my-2 my-sm-0" to="/dangnhap">Đăng nhập</NavLink>
+                           
+                          </form>
                         </div>
                     </nav>
             </div>

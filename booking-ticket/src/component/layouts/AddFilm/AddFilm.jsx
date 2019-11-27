@@ -61,19 +61,18 @@ class AddFilm extends Component {
     formatDate = (date) => {
         //yyyy-MM-dd
         var datefm = new Date(date);
-        var monthFm = ((datefm.getMonth() + 1) < 10) ? "0" + datefm.getMonth() + 1 : datefm.getMonth() + 1;
+        // console.log(datefm)
+        var monthFm = ((datefm.getMonth() + 1) < 10) ? "0" + (datefm.getMonth() + 1) : (datefm.getMonth() + 1);
         var dayFm = ((datefm.getDate() < 10) ? "0" + datefm.getDate() : datefm.getDate());
-        
+
         datefm = `${datefm.getFullYear() + "-" + monthFm + "-" + dayFm}`;
         return datefm;
     }
     render() {
-        let filmEdit = [];
-        if (this.props.mangPhim.length !== 1) {
-            filmEdit = this.state.phimAdd;
-        } else {
-            filmEdit = this.props.mangPhim[0];
+        if (this.props.mangPhim.length === 1) {
+            let filmEdit = this.props.mangPhim[0];
             filmEdit.ngayKhoiChieu = this.formatDate(filmEdit.ngayKhoiChieu);
+            this.state.phimAdd = filmEdit;
         }
 
         return (
@@ -82,23 +81,23 @@ class AddFilm extends Component {
                     <div className="row">
                         <div className="form-group col-md-6">
                             <label >Mã phim</label>
-                            <input type="text" name="maPhim" className="form-control" value={filmEdit.maPhim} onChange={this.handleChange} />
+                            <input type="text" name="maPhim" className="form-control" value={this.state.phimAdd.maPhim} onChange={this.handleChange}  />
                         </div>
                         <div className="form-group col-md-6">
                             <label >Ngày khởi chiếu</label>
-                            <input type="date" name="ngayKhoiChieu" className="form-control" value={filmEdit.ngayKhoiChieu} onChange={this.handleChange} />
+                            <input type="date" name="ngayKhoiChieu" className="form-control" value={this.state.phimAdd.ngayKhoiChieu} onChange={this.handleChange} />
                         </div>
                         <div className="form-group col-md-6">
                             <label >Tên phim</label>
-                            <input type="text" name="tenPhim" className="form-control" value={filmEdit.tenPhim} onChange={this.handleChange} />
+                            <input type="text" name="tenPhim" className="form-control" value={this.state.phimAdd.tenPhim} onChange={this.handleChange} />
                         </div>
                         <div className="form-group col-md-6">
                             <label >Đánh giá</label>
-                            <input type="text" name="danhGia" className="form-control" value={filmEdit.danhGia} onChange={this.handleChange} />
+                            <input type="text" name="danhGia" className="form-control" value={this.state.phimAdd.danhGia} onChange={this.handleChange} />
                         </div>
                         <div className="form-group col-md-6">
                             <label >Trailer</label>
-                            <input type="text" name="trailer" className="form-control" value={filmEdit.trailer} onChange={this.handleChange} />
+                            <input type="text" name="trailer" className="form-control" value={this.state.phimAdd.trailer} onChange={this.handleChange} />
                         </div>
                         <div className="form-group col-md-6">
                             <label >Hinh ảnh</label>
@@ -106,11 +105,11 @@ class AddFilm extends Component {
                         </div>
                         <div className="form-group col-md-6">
                             <label >Bí danh</label>
-                            <input type="area-text" name="biDanh" className="form-control" value={filmEdit.biDanh} onChange={this.handleChange} />
+                            <input type="area-text" name="biDanh" className="form-control" value={this.state.phimAdd.biDanh} onChange={this.handleChange} />
                         </div>
                         <div className="form-group col-md-6">
                             <label >Mô tả</label>
-                            <input type="area-text" name="moTa" className="form-control" value={filmEdit.moTa} onChange={this.handleChange} />
+                            <input type="area-text" name="moTa" className="form-control" value={this.state.phimAdd.moTa} onChange={this.handleChange} />
                         </div>
                         <div className="form-group">
                             <button className="btn btn-success">Add phim</button>
