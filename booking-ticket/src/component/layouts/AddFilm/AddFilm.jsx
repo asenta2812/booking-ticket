@@ -59,18 +59,23 @@ class AddFilm extends Component {
         }
     }
     formatDate = (date) => {
+        //yyyy-MM-dd
         var datefm = new Date(date);
-        // datefm = `${datefm.getDate() + "-" +}`
+        var monthFm = ((datefm.getMonth() + 1) < 10) ? "0" + datefm.getMonth() + 1 : datefm.getMonth() + 1;
+        var dayFm = ((datefm.getDate() < 10) ? "0" + datefm.getDate() : datefm.getDate());
+        
+        datefm = `${datefm.getFullYear() + "-" + monthFm + "-" + dayFm}`;
+        return datefm;
     }
     render() {
         let filmEdit = [];
-        if (this.props.mangPhim.length !== 1 ) {
+        if (this.props.mangPhim.length !== 1) {
             filmEdit = this.state.phimAdd;
         } else {
             filmEdit = this.props.mangPhim[0];
-            this.formatDate(filmEdit.ngayKhoiChieu);           
+            filmEdit.ngayKhoiChieu = this.formatDate(filmEdit.ngayKhoiChieu);
         }
-        
+
         return (
             <div className="container">
                 <form action="" onSubmit={this.handleSubmit}>
