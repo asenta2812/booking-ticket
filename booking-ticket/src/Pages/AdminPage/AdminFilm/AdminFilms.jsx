@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { layDanhSachMangPhimTheoPageAction, layDanhSachPhim1Actions,deleteFilmByIdAction } from '../../../redux/actions/QuanLyPhimActions';
+import { NavLink } from 'react-router-dom'
+import { layDanhSachPhim1Actions, deleteFilmByIdAction } from '../../../redux/actions/QuanLyPhimActions';
 
 class AdminFilms extends Component {
     constructor(props) {
@@ -24,7 +25,7 @@ class AdminFilms extends Component {
                     <td>{phim.ngayKhoiChieu}</td>
                     <td className="display-flex">
                         <button className="btn btn-outline-success ">Tạo lịch chiếu</button>
-                        <button className="btn btn-outline-secondary">Sửa</button>
+                        <NavLink className="btn btn-outline-secondary" to={`/trangquanly/suaphim/${phim.tenPhim}`}>Sửa</NavLink>
                         <button className="btn btn-outline-danger" onClick={() => this.props.deleteFilmById(phim.maPhim)}>Xoá</button>
                     </td>
                 </tr>
@@ -36,7 +37,8 @@ class AdminFilms extends Component {
             <div>
                 {/* Page Heading */}
                 <h1 className="h3 mb-2 text-gray-800">Quản lý xem phim</h1>
-                <p className="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+                <NavLink className="btn btn-success" to="/trangquanly/themphim">Thêm mới</NavLink>
+
                 {/* DataTales Example */}
                 <div className="card shadow mb-4">
                     <div className="card-header py-3">
@@ -59,7 +61,7 @@ class AdminFilms extends Component {
                                 <tbody>
                                     {this.renderFilm()}
                                 </tbody>
-                            </table>                
+                            </table>
                         </div>
                     </div>
                 </div>

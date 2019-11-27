@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 @import "./reset/_reset.scss";
-@import "./variables/_variables.scss";
-@import "./mixin/_mixin.scss";
-@import "./global/_global.scss";
 
-@import "../../component/layouts/Header/HeaderHome/_HeaderHome.scss";
-@import "../../Pages/LoginPageAdmin/_loginadmin.scss"
-=======
-@import '../../Pages/AdminPage/AdminFilm/adminFilms'
->>>>>>> master
+
+
+// @import "../../component/layouts/Header/HeaderHome/_HeaderHome.scss";
+@import "../../Pages/LoginPageAdmin/_loginadmin.scss";
+@import "../../Pages/AdminPage/AdminFilm/_adminFilms.scss"

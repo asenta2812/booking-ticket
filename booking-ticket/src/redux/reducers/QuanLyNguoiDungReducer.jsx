@@ -21,13 +21,10 @@ export const QuanLyNguoiDungReducer = (state = initialState, action) => {
 
         case actionTypes.LAY_DANH_SACH_NGUOI_DUNG: {
             state.listDSNguoiDung = action.listDSNguoiDung
-<<<<<<< HEAD
             return { ...state }
         }
         case actionTypes.TIM_KIEM_NGUOI_DUNG: {
             state.listDSNguoiDung = action.listDSNguoiDung
-=======
->>>>>>> master
             return { ...state }
         }
         case actionTypes.LOAI_NGUOI_DUNG: {

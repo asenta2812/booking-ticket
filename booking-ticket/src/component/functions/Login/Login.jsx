@@ -20,13 +20,13 @@ class Login extends Component {
         this.setState({
             userLogin: { ...this.state.userLogin, [name]: value }
         }, () => {
-            console.log(this.state.userLogin)
+            // console.log(this.state.userLogin)
         })
     };
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.dangNhap(this.state.userLogin);
-        console.log(this.state.userLogin);
+        // console.log(this.state.userLogin);
     };
     render() {
         // const { getFieldDecorator } = this.props.form;

@@ -5,13 +5,8 @@ export default class AdminPage extends Component {
     
     render() {
         return (
-<<<<<<< HEAD
             <div>
                 admin
-=======
-            <div >
-
->>>>>>> master
             </div>
         )
     }
