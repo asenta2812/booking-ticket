@@ -101,7 +101,7 @@ class FormEditUser extends Component {
                             <div className="form-group">
                                 <label >Tài khoản</label>
                                 <input disabled type="text" name="taiKhoan" id="taiKhoan"  className="form-control" value={this.state.userSave.taiKhoan} onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
-                                {this.state.errors.taiKhoan != '' ? <div className="alert alert-danger">{this.state.errors.taiKhoan}</div> : ''}
+                                {this.state.errors.taiKhoan !== '' ? <div className="alert alert-danger">{this.state.errors.taiKhoan}</div> : ''}
                             </div>
                             <div className="form-group">
                                 <label >Loại người dùng</label>
@@ -112,22 +112,22 @@ class FormEditUser extends Component {
                             <div className="form-group">
                                 <label >Mật khẩu</label>
                                 <input type="text" name="matKhau" id="matKhau" value={this.state.userSave.matKhau} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors}/>
-                                {this.state.errors.matKhau != '' ? <div className="alert alert-danger">{this.state.errors.matKhau}</div> : ''}
+                                {this.state.errors.matKhau !== '' ? <div className="alert alert-danger">{this.state.errors.matKhau}</div> : ''}
                             </div>
                             <div className="form-group">
                                 <label >Họ và tên</label>
                                 <input type="text" name="hoTen" id="hoTen" value={this.state.userSave.hoTen} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
-                                {this.state.errors.hoTen != '' ? <div className="alert alert-danger">{this.state.errors.hoTen}</div> : ''}
+                                {this.state.errors.hoTen !== '' ? <div className="alert alert-danger">{this.state.errors.hoTen}</div> : ''}
                             </div>
                             <div className="form-group">
                                 <label >Email</label>
                                 <input type="text" name="email" id="email" value={this.state.userSave.email} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
-                                {this.state.errors.email != '' ? <div className="alert alert-danger">{this.state.errors.email}</div> : ''}
+                                {this.state.errors.email !== '' ? <div className="alert alert-danger">{this.state.errors.email}</div> : ''}
                             </div>
                             <div className="form-group">
                                 <label >Số điện thoại</label>
                                 <input type="text" name="soDt" id="soDt" value={this.state.userSave.soDt} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
-                                {this.state.errors.soDt != '' ? <div className="alert alert-danger">{this.state.errors.soDt}</div> : ''}
+                                {this.state.errors.soDt !== '' ? <div className="alert alert-danger">{this.state.errors.soDt}</div> : ''}
                             </div>
                             {/* <div className="form-group">
                                 <label >Mã nhóm</label>

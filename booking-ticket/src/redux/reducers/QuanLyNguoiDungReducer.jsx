@@ -1,5 +1,5 @@
 import { actionTypes } from "../constants/QuanLyNguoiDungConstants";
-import { settings } from "../../common/Config/Settings";
+// import { settings } from "../../common/Config/Settings";
 
 const initialState = {
     data: {},

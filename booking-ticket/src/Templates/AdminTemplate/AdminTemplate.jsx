@@ -2,12 +2,12 @@ import React, { Fragment } from "react";
 import HeaderAdmin from "../../component/layouts/Header/HeaderAdmin/HeaderAdmin";
 import FooterAdmin from "../../component/layouts/Footer/FooterAdmin/FooterAdmin";
 import { Route, Link } from "react-router-dom";
-import { Layout, Menu, Breadcrumb, Icon } from "antd";
+import { Layout, Menu, Icon } from "antd";
 import "antd/dist/antd.css";
 
 const AdminLayout = props => {
-  const { Header, Content, Footer, Sider } = Layout;
-  const { SubMenu, Item } = Menu;
+  const {  Content , Sider } = Layout;
+  const {  Item } = Menu;
 
   return (
     <Fragment>

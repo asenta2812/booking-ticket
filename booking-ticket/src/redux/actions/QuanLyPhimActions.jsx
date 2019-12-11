@@ -79,12 +79,12 @@ export const layThongTinCumRapTheoHeThongAction = maHeThongRap => {
       });
   };
 };
-export const themPhimAction = phimAdd => {
+export const themPhimAction = (phimAdd, isUpdate) => {
   let file = phimAdd.hinhAnh;
   phimAdd.hinhAnh = file.name;
   return dispatch => {
     axios({
-      url: settings.domain + `/QuanLyPhim/ThemPhim`,
+      url: settings.domain + (isUpdate ? `/QuanLyPhim/CapNhatPhim` : `/QuanLyPhim/ThemPhim`),
       method: "POST",
       data: { ...phimAdd },
       headers: {
@@ -108,11 +108,11 @@ export const themPhimAction = phimAdd => {
             window.location.href = "/trangquanly/phim";
           })
           .catch(err => {
-            console.log(err.response.data);
+            console.log(err.response);
           });
       })
       .catch(err => {
-        console.log(err.response.data);
+        console.log(err.response);
       });
   };
 };
@@ -129,22 +129,22 @@ export const deleteFilmByIdAction = maPhim => {
       .catch(err => err.response);
   };
 };
-export const getFilmByNameAction =  name => {
-    return dispatch => {
-        axios({
-            url:
-              settings.domain +
-              `/QuanLyPhim/LayDanhSachPhim?maNhom=${settings.groupID}&tenPhim=${name}`,
-            method: "GET"
-          })
-            .then(result => {
-              dispatch({
-                type: actionTypes.LAY_DANH_SACH_PHIM,
-                mangPhim: result.data
-              });
-            })
-            .catch(err => {
-              console.log(err.response);
-            });
-    }
+export const getFilmByNameAction = name => {
+  return dispatch => {
+    axios({
+      url:
+        settings.domain +
+        `/QuanLyPhim/LayDanhSachPhim?maNhom=${settings.groupID}&tenPhim=${name}`,
+      method: "GET"
+    })
+      .then(result => {
+        dispatch({
+          type: actionTypes.LAY_DANH_SACH_PHIM,
+          mangPhim: result.data
+        });
+      })
+      .catch(err => {
+        console.log(err.response);
+      });
+  }
 }

@@ -4,9 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { layDanhSachPhim1Actions, deleteFilmByIdAction } from '../../../redux/actions/QuanLyPhimActions';
 
 class AdminFilms extends Component {
-    constructor(props) {
-        super(props);
-    }
+  
     componentDidMount = () => {
         this.props.layDanhSachPhim();
     }
@@ -19,7 +17,7 @@ class AdminFilms extends Component {
                 <tr key={index}>
                     <td>{phim.maPhim}</td>
                     <td>{phim.tenPhim}</td>
-                    <td><img src={phim.hinhAnh} className="img-size" /></td>
+                    <td><img src={phim.hinhAnh} className="img-size" alt="loi" /></td>
                     <td>{phim.moTa}</td>
                     <td>{phim.maNhom}</td>
                     <td>{phim.ngayKhoiChieu}</td>

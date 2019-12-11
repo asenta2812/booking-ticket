@@ -29,19 +29,30 @@ class AddFilm extends Component {
                 maNhom: settings.groupID,
                 ngayKhoiChieu: '',
                 danhGia: ''
-            }
+            },
+            isUpdate: false
         }
     }
     componentDidMount() {
         let { tenPhim } = this.props.match.params;
-        this.props.getFilmByName(tenPhim);
+        if (tenPhim !== undefined) {
+            this.props.getFilmByName(tenPhim);
+            this.setState({
+                isUpdate: true
+            })
+        }
     }
     handleSubmit = (e) => {
         e.preventDefault();
         // convert date => dd/mm/yyyy    
         var date = new Date(this.state.phimAdd.ngayKhoiChieu);
-        this.state.phimAdd.ngayKhoiChieu = `${date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()}`;
-        this.props.themPhim(this.state.phimAdd)
+
+        var monthFm = ((date.getMonth() + 1) < 10) ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1);
+        var dayFm = ((date.getDate() < 10) ? "0" + date.getDate() : date.getDate());
+        // eslint-disable-next-line react/no-direct-mutation-state
+        this.state.phimAdd.ngayKhoiChieu = `${dayFm + "/" + monthFm + "/" + date.getFullYear()}`;
+
+        this.props.themPhim(this.state.phimAdd, this.state.isUpdate)
     }
     handleChange = (e) => {
         let { value, name, type } = e.target;
@@ -58,8 +69,8 @@ class AddFilm extends Component {
             })
         }
     }
-    formatDate = (date) => {
-        //yyyy-MM-dd
+
+    FormatDate = (date) => {
         var datefm = new Date(date);
         // console.log(datefm)
         var monthFm = ((datefm.getMonth() + 1) < 10) ? "0" + (datefm.getMonth() + 1) : (datefm.getMonth() + 1);
@@ -68,20 +79,23 @@ class AddFilm extends Component {
         datefm = `${datefm.getFullYear() + "-" + monthFm + "-" + dayFm}`;
         return datefm;
     }
-    render() {
-        if (this.props.mangPhim.length === 1) {
-            let filmEdit = this.props.mangPhim[0];
-            filmEdit.ngayKhoiChieu = this.formatDate(filmEdit.ngayKhoiChieu);
-            this.state.phimAdd = filmEdit;
-        }
 
+    componentWillReceiveProps(nextProps) {
+        //nextProps: là props sau khi thay đổi 
+        this.setState({
+            phimAdd: nextProps.mangPhim[0]
+        })
+    }
+    render() {
+        this.state.phimAdd.ngayKhoiChieu = this.FormatDate(this.state.phimAdd.ngayKhoiChieu);
+        console.log(this.state.isUpdate)
         return (
             <div className="container">
                 <form action="" onSubmit={this.handleSubmit}>
                     <div className="row">
                         <div className="form-group col-md-6">
                             <label >Mã phim</label>
-                            <input type="text" name="maPhim" className="form-control" value={this.state.phimAdd.maPhim} onChange={this.handleChange}  />
+                            <input type="text" name="maPhim" className="form-control" value={this.state.phimAdd.maPhim} onChange={this.handleChange} />
                         </div>
                         <div className="form-group col-md-6">
                             <label >Ngày khởi chiếu</label>
@@ -125,8 +139,8 @@ const mapStateToProps = (state) => ({
 })
 const mapDispatchToProps = (dispatch) => {
     return {
-        themPhim: (phimAdd) => {
-            dispatch(themPhimAction(phimAdd))
+        themPhim: (phimAdd, isUpdate) => {
+            dispatch(themPhimAction(phimAdd, isUpdate))
         },
         getFilmByName: (name) => {
             dispatch(getFilmByNameAction(name))
