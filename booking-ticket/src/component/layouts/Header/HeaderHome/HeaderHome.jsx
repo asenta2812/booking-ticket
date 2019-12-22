@@ -28,8 +28,8 @@ export default class HeaderHome extends Component {
                                 </li>
                             </ul>
                             <form className="form-inline my-2 my-lg-0">
-                            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Đăng ký</button>
-                                <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Đăng nhập</button>
+                                <a href="/dangky" className="btn btn-outline-success my-2 my-sm-0" >Đăng ký</a>
+                                <a href="/dangnhap" className="btn btn-outline-success my-2 my-sm-0" >Đăng nhập</a>
                             </form>
                         </div>
                     </nav>

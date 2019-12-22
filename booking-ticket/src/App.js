@@ -29,6 +29,7 @@ function App() {
           <AdminTemplate exact path="/trangquanly/chitietnguoidung/:taiKhoan" Component={DetailUser}/>
           {/* <Route exact path="/quanly" component={LoginAdmin}/> */}
           <Route exact path="/dangky" component={Register}/>
+          <Route exact path="/dangnhap" component={Login}/>
         </Switch>
       </BrowserRouter>
     </Fragment>

@@ -17,6 +17,7 @@ export default class MovieList extends Component {
                             <h4 className="card-title">{phim.tenPhim}</h4>
                             <p className="card-text">{phim.moTa}</p>
                         </div>
+                        <button>Mua ve</button>
                     </div>
                 </div>
             )
