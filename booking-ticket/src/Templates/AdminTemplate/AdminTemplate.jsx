@@ -1,49 +1,25 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import HeaderAdmin from "../../component/layouts/Header/HeaderAdmin/HeaderAdmin";
 import FooterAdmin from "../../component/layouts/Footer/FooterAdmin/FooterAdmin";
 import { Route, Link } from "react-router-dom";
 import { Layout, Menu, Icon } from "antd";
 import "antd/dist/antd.css";
+import SideBarAdmin from "../../component/layouts/SideBarAdmin/SideBarAdmin";
 
 const AdminLayout = props => {
-  const {  Content , Sider } = Layout;
-  const {  Item } = Menu;
-
+  const { Content } = Layout;
   return (
     <Fragment>
-      <HeaderAdmin />
-      <Layout style={{ minHeight: "100vh" }}>
-        {/* <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}> */}
-        <Sider>
-          <div className="logo" />
-          <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-            <Item key="1">
-              <Link to="/trangquanly/phim">
-                <Icon type="desktop"></Icon>
-                Quản lý phim
-              </Link>
-            </Item>
-            <Item key="2">
-              <Link to="/trangquanly/quanlynguoidung">
-                <Icon type="user" />
-                Quản lý người dùng
-              </Link>
-            </Item>
-            <Item key="3">
-              <Icon type="desktop" />
-              <span>Option 2</span>
-            </Item>
-            {/* <li className="nav-item active">
-                        <Link className="nav-link" to="/trangquanly/themphim">Trang chủ</Link>
-                    </li>
-                    <li className="nav-item active">
-                        <Link className="nav-link" to="/trangquanly/themnguoidung">Trang chủ</Link>
-                    </li> */}
-          </Menu>
-        </Sider>
-        <Layout>
-          <Content style={{ margin: "0 16px" }}>{props.children}</Content>
-          <FooterAdmin />
+      <Layout>
+        <SideBarAdmin />
+        <Layout style={{ minHeight: "100vh" }}>
+          {/* <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}> */}
+          <HeaderAdmin />
+          <Layout>
+            <Content style={{ margin: "0 16px" }}>{props.children}
+              <FooterAdmin />
+            </Content>
+          </Layout>
         </Layout>
       </Layout>
     </Fragment>

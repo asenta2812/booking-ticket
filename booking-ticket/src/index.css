@@ -4,6 +4,76 @@ body, html {
   font-size: 14px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.register-user {
+  width: 100%;
+  height: 120vh;
+  background-image: url("./assets/scss/images/backapp.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: #333333;
+  display: block;
+  font-size: 14px;
+}
+
+.register-user .container {
+  position: relative;
+  height: 100%;
+}
+
+.register-user .container .register_form {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.title-form {
+  width: 100%;
+  color: whitesmoke;
+  text-align: center;
+  padding: 10px;
+  font-size: 50px;
+}
+
+.form-group label {
+  color: whitesmoke;
+}
+
+.login_page {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./assets/scss/images/backapp.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+.login_page .container {
+  position: relative;
+  height: 100%;
+}
+
+.login_page .container .form_login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.ant-layout-sider-children .logo {
+  width: 120px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 28px 16px 0;
+  float: left;
 }
 
 .page-numbers {

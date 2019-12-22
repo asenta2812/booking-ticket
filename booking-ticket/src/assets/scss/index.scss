@@ -1,7 +1,9 @@
 @import "./reset/_reset.scss";
 
+@import "../../component/functions/Register/_Register.scss";
+@import "../../component/functions/Login/_Login.scss";
 
-
-// @import "../../component/layouts/Header/HeaderHome/_HeaderHome.scss";
+@import "../../component/layouts/Header/HeaderAdmin/_HeaderAdmin.scss";
+@import "../../component/layouts/SideBarAdmin/_sideBarAdmin.scss";
 @import "../../Pages/LoginPageAdmin/_loginadmin.scss";
-@import "../../Pages/AdminPage/AdminFilm/_adminFilms.scss"
+@import "../../Pages/AdminPage/AdminFilm/_adminFilms.scss"; 
