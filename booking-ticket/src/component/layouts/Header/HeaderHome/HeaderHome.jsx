@@ -29,10 +29,16 @@ export default class HeaderHome extends Component {
                                 </li>
                             </ul>
                             <form className="form-inline my-2 my-lg-0">
+<<<<<<< HEAD
+                                <a href="/dangky" className="btn btn-outline-success my-2 my-sm-0" >Đăng ký</a>
+                                <a href="/dangnhap" className="btn btn-outline-success my-2 my-sm-0" >Đăng nhập</a>
+                            </form>
+=======
                                 <NavLink className="btn btn-outline-success my-2 my-sm-0" to="/dangky">Đăng ký</NavLink>
                                 <NavLink className="btn btn-outline-primary my-2 my-sm-0" to="/dangnhap">Đăng nhập</NavLink>
                            
                           </form>
+>>>>>>> origin
                         </div>
                     </nav>
             </div>
