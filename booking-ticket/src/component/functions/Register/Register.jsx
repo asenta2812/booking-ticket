@@ -2,6 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { dangKyNguoiDungAction, layDanhSachLoaiNguoiDungAction } from '../../../redux/actions/QuanLyNguoiDungAction';
 import { settings } from '../../../common/Config/Settings';
+import {
+//     Form,
+//     Input,
+//     Tooltip,
+//     Icon,
+//     Cascader,
+    Select,
+//     Row,
+//     Col,
+//     Checkbox,
+//     Button,
+//     AutoComplete,
+  } from 'antd';
+  
+  const { Option } = Select;
 
 class Register extends Component {
     constructor(props) {
@@ -104,7 +119,7 @@ class Register extends Component {
                             <div className="form-group">
                                 <label >Tài khoản</label>
                                 <input type="text" name="taiKhoan" id="taiKhoan"  className="form-control" value={this.state.nguoiDK.taiKhoan} onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
-                                {this.state.errors.taiKhoan != '' ? <div className="alert alert-danger">{this.state.errors.taiKhoan}</div> : ''}
+                                {this.state.errors.taiKhoan !== '' ? <div className="alert alert-danger">{this.state.errors.taiKhoan}</div> : ''}
                             </div>
                             <div className="form-group">
                                 <label >Loại người dùng</label>
@@ -115,27 +130,27 @@ class Register extends Component {
                             <div className="form-group">
                                 <label >Mật khẩu</label>
                                 <input type="text" name="matKhau" id="matKhau" value={this.state.nguoiDK.matKhau} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors}/>
-                                {this.state.errors.matKhau != '' ? <div className="alert alert-danger">{this.state.errors.matKhau}</div> : ''}
+                                {this.state.errors.matKhau !== '' ? <div className="alert alert-danger">{this.state.errors.matKhau}</div> : ''}
                             </div>
                             <div className="form-group">
                                 <label >Nhập lại mật khẩu</label>
                                 <input type="text" name="matKhau2" id="matKhau2" className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
-                                {this.state.errors.matKhau2 != '' ? <div className="alert alert-danger">{this.state.errors.matKhau2}</div> : ''}
+                                {this.state.errors.matKhau2 !== '' ? <div className="alert alert-danger">{this.state.errors.matKhau2}</div> : ''}
                             </div>
                             <div className="form-group">
                                 <label >Họ và tên</label>
                                 <input type="text" name="hoTen" id="hoTen" value={this.state.nguoiDK.hoTen} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
-                                {this.state.errors.hoTen != '' ? <div className="alert alert-danger">{this.state.errors.hoTen}</div> : ''}
+                                {this.state.errors.hoTen !== '' ? <div className="alert alert-danger">{this.state.errors.hoTen}</div> : ''}
                             </div>
                             <div className="form-group">
                                 <label >Email</label>
                                 <input type="text" name="email" id="email" value={this.state.nguoiDK.email} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
-                                {this.state.errors.email != '' ? <div className="alert alert-danger">{this.state.errors.email}</div> : ''}
+                                {this.state.errors.email !== '' ? <div className="alert alert-danger">{this.state.errors.email}</div> : ''}
                             </div>
                             <div className="form-group">
                                 <label >Số điện thoại</label>
                                 <input type="text" name="soDt" id="soDt" value={this.state.nguoiDK.soDt} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
-                                {this.state.errors.soDt != '' ? <div className="alert alert-danger">{this.state.errors.soDt}</div> : ''}
+                                {this.state.errors.soDt !== '' ? <div className="alert alert-danger">{this.state.errors.soDt}</div> : ''}
                             </div>
                             <div className="form-group">
                                 <button className="btn btn-success">Đăng ký</button>

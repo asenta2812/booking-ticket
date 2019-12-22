@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 // import Table from 'antd/lib/table';
 // import Button from 'antd/lib/button';
 import {Link} from 'react-router-dom'
-import QueueAnim from 'rc-queue-anim';
+// import QueueAnim from 'rc-queue-anim';
 import PropTypes from 'prop-types';
 import { TweenOneGroup } from 'rc-tween-one';
 import { connect } from 'react-redux'
-import { QuanLyNguoiDungReducer } from '../../../redux/reducers/QuanLyNguoiDungReducer';
+// import { QuanLyNguoiDungReducer } from '../../../redux/reducers/QuanLyNguoiDungReducer';
+
 import { layDanhSachNguoiDungAction, xoaNguoiDungAction, capNhatNguoiDungAction, timKiemNguoiDungAction } from '../../../redux/actions/QuanLyNguoiDungAction';
+
 import FormEditUser from './FormEditUser';
 import { actionTypes } from '../../../redux/constants/QuanLyNguoiDungConstants';
 import AddUsers from '../AddUsers/AddUsers';
-import { Table, Input, Button, Icon } from 'antd';
-import Highlighter from 'react-highlight-words';
+import { Table, Button, Icon } from 'antd';
+// import Highlighter from 'react-highlight-words';
 
 
 const TableContext = React.createContext(false);
@@ -29,7 +31,9 @@ class ManagerUser extends Component {
         super(props);
         this.state = {
             isPageTween: false,
+
             searchKey: ''
+
         };
         this.enterAnim = [
             {

@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { BrowserRouter, Switch ,Route} from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { HomeTemplate } from "./Templates/HomeTemplate/HomeTemplate";
 import HomePage from "./Pages/HomePage/HomePage";
 import DetailMovie from "./Pages/DetailPageForMovie/DetailMovie";
@@ -13,6 +13,7 @@ import AddFilm from "./component/layouts/AddFilm/AddFilm";
 import AddUsers from "./component/layouts/AddUsers/AddUsers";
 import ManagerUser from "./component/layouts/ManagerUsers/ManagerUser";
 import DetailUser from "./component/layouts/DetailUser/DetailUser";
+import AdminFilms from "./Pages/AdminPage/AdminFilm/AdminFilms"
 function App() {
   return (
     <Fragment>
@@ -21,15 +22,22 @@ function App() {
           <HomeTemplate exact path="/" Component={HomePage} />
           <HomeTemplate exact path="/trangchu" Component={HomePage} />
           <HomeTemplate exact path="/chitietphim" Component={DetailMovie} />
-          <HomeTemplate exact path="/chitietrap" Component={DetailMovieTheater}/>
-          <AdminTemplate exact path="/trangquanly" Component={AdminPage}/>
-          <AdminTemplate exact path="/trangquanly/themphim" Component={AddFilm}/>
-          <AdminTemplate exact path="/trangquanly/themnguoidung" Component={AddUsers}/>
-          <AdminTemplate exact path="/trangquanly/quanlynguoidung" Component={ManagerUser}/>
-          <AdminTemplate exact path="/trangquanly/chitietnguoidung/:taiKhoan" Component={DetailUser}/>
+          <HomeTemplate exact path="/chitietrap" Component={DetailMovieTheater} />
+          <AdminTemplate exact path="/trangquanly" Component={AdminPage} />
+          <AdminTemplate exact path="/trangquanly/phim" Component={AdminFilms} />
+          <AdminTemplate exact path="/trangquanly/themphim" Component={AddFilm} />
+          <AdminTemplate exact path="/trangquanly/suaphim/:tenPhim" Component={AddFilm} />
+          <AdminTemplate exact path="/trangquanly/themnguoidung" Component={AddUsers} />
+          <AdminTemplate exact path="/trangquanly/quanlynguoidung" Component={ManagerUser} />
+          <AdminTemplate exact path="/trangquanly/chitietnguoidung/:taiKhoan" Component={DetailUser} />
           {/* <Route exact path="/quanly" component={LoginAdmin}/> */}
+<<<<<<< HEAD
           <Route exact path="/dangky" component={Register}/>
           <Route exact path="/dangnhap" component={Login}/>
+=======
+          <Route exact path="/dangky" component={Register} />
+          <Route exact path="/dangnhap" component={Login} />
+>>>>>>> origin
         </Switch>
       </BrowserRouter>
     </Fragment>

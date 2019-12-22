@@ -7,7 +7,7 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { rootReducers } from "./redux/reducers/index";
 import reduxThunk from "redux-thunk";
-import { DatePicker } from 'antd';
+// import { DatePicker } from 'antd';
 
 const store = createStore(rootReducers, applyMiddleware(reduxThunk));
 
