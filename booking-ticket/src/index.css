@@ -101,4 +101,137 @@ body, html {
   width: 100px !important;
   height: auto !important;
 }
+
+.ant-carousel .slick-slide {
+  text-align: center;
+  line-height: 160px;
+  background: #364d79;
+  overflow: hidden;
+  height: 500px !important;
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #fff;
+}
+
+.ant-carousel .slick-slide img {
+  width: 100%;
+}
+
+.modal-dialog {
+  max-width: 800px !important;
+}
+
+.list-movie {
+  padding: 80px 0;
+}
+
+.card-home-page .img-film {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+
+.card-home-page .img-film img {
+  width: 100%;
+  height: 100%;
+}
+
+.card-home-page {
+  position: relative;
+}
+
+.card-home-page:hover .over-lay {
+  opacity: 1;
+}
+
+.card-home-page:hover .card-body {
+  opacity: 0;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+}
+
+.over-lay {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+}
+
+.over-lay img {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+}
+
+.over-lay img:hover {
+  opacity: .7;
+}
+
+.over-lay button {
+  background: transparent;
+  border: none;
+}
+
+.over-lay button.order-movie {
+  position: absolute;
+  width: 100%;
+  top: 315px;
+  left: 0;
+}
+
+.over-lay .order-movie {
+  font-size: 16px;
+  border-radius: 4px;
+  text-align: center;
+  background: 0 0;
+  padding: 7px 25px;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  background-color: #fb4226;
+  border: none;
+  color: #fff;
+}
+
+.content-movie {
+  position: relative;
+}
+
+.content-movie span {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.content-movie span .ant-rate {
+  font-size: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 6px;
+  border-radius: 5px;
+}
+
+.content-movie span .ant-rate li {
+  margin-right: 1px;
+}
+
+.content-movie .date-open {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 6px;
+  border-radius: 5px;
+}
 /*# sourceMappingURL=index.css.map */
