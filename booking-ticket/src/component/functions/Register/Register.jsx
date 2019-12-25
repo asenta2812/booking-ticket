@@ -3,20 +3,20 @@ import { connect } from 'react-redux'
 import { dangKyNguoiDungAction, layDanhSachLoaiNguoiDungAction } from '../../../redux/actions/QuanLyNguoiDungAction';
 import { settings } from '../../../common/Config/Settings';
 import {
-//     Form,
-//     Input,
-//     Tooltip,
-//     Icon,
-//     Cascader,
+    Form,
+    Input,
+    Tooltip,
+    Icon,
+    Cascader,
     Select,
-//     Row,
-//     Col,
-//     Checkbox,
-//     Button,
-//     AutoComplete,
-  } from 'antd';
-  
-  const { Option } = Select;
+    Row,
+    Col,
+    Checkbox,
+    Button,
+    AutoComplete,
+} from 'antd';
+
+const { Option } = Select;
 
 class Register extends Component {
     constructor(props) {
@@ -47,7 +47,7 @@ class Register extends Component {
     componentWillMount() {
         this.props.layDanhSachLoaiNguoiDung()
     }
-     
+
     handleErrors = (e) => {
         let { name, value } = e.target;
         let err = value === '' ? 'Không được để trống !' : '';
@@ -66,18 +66,18 @@ class Register extends Component {
                 err += ' Số điện thoại không đúng định dạng !';
             }
         }
-        if(name === 'hoTen') {
+        if (name === 'hoTen') {
             let regex = /[^a-z0-9A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]/u;
-            if(!regex.test(value)) {
+            if (!regex.test(value)) {
                 err += ' Họ và tên không hợp lệ !';
             }
         }
-        if(name === 'matKhau') {
-            if(value.length < 5 || value.length > 13)
-            err += ' Mật khẩu từ 6 - 12 kí tự !';
+        if (name === 'matKhau') {
+            if (value.length < 5 || value.length > 13)
+                err += ' Mật khẩu từ 6 - 12 kí tự !';
         }
-        if(name === 'matKhau2') {
-            if(value !== this.state.nguoiDK.matKhau) {
+        if (name === 'matKhau2') {
+            if (value !== this.state.nguoiDK.matKhau) {
                 err += 'Mật khẩu đó không khớp. Hãy thử lại!';
             }
             else err += '';
@@ -89,6 +89,9 @@ class Register extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        this.setState({
+            nguoiDK: { ...this.state.nguoiDK, maLoaiNguoiDung: "KhachHang" }
+        }, ()=> {console.log(this.state.nguoiDK) })
         this.props.dangKyNguoiDung(this.state.nguoiDK)
     }
 
@@ -96,67 +99,62 @@ class Register extends Component {
         let { value, name } = e.target;
         this.setState({
             nguoiDK: { ...this.state.nguoiDK, [name]: value }
-        }, () => {
-            console.log(this.state.nguoiDK)
         })
 
     }
     renderLoaiNguoiDung = () => {
         return this.props.mangLoaiNguoiDung.map((nguoiDung, index) => {
-            if(nguoiDung.maLoaiNguoiDung !== "QuanTri")
-            return <option key={index} value={nguoiDung.maLoaiNguoiDung}>{nguoiDung.tenLoai}</option>
+            if (nguoiDung.maLoaiNguoiDung !== "QuanTri")
+                return <option key={index} value={nguoiDung.maLoaiNguoiDung}>{nguoiDung.tenLoai}</option>
         })
     }
 
     render() {
+
         return (
             <div className="register-user">
-                <div className="row">
-                    <div className="col-6"></div>
-                    <div className="col-6">
-                        <h3 className="title-form">Đăng ký</h3>
-                        <form action="" onSubmit={this.handleSubmit}>
-                            <div className="form-group">
-                                <label >Tài khoản</label>
-                                <input type="text" name="taiKhoan" id="taiKhoan"  className="form-control" value={this.state.nguoiDK.taiKhoan} onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
-                                {this.state.errors.taiKhoan !== '' ? <div className="alert alert-danger">{this.state.errors.taiKhoan}</div> : ''}
-                            </div>
-                            <div className="form-group">
-                                <label >Loại người dùng</label>
-                                <select className="form-control" name="maLoaiNguoiDung" value={this.state.nguoiDK.maLoaiNguoiDung} id="maLoaiNguoiDung" onChange={this.handleChange}>
-                                    {this.renderLoaiNguoiDung()}
-                                </select>
-                            </div>
-                            <div className="form-group">
-                                <label >Mật khẩu</label>
-                                <input type="text" name="matKhau" id="matKhau" value={this.state.nguoiDK.matKhau} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors}/>
-                                {this.state.errors.matKhau !== '' ? <div className="alert alert-danger">{this.state.errors.matKhau}</div> : ''}
-                            </div>
-                            <div className="form-group">
-                                <label >Nhập lại mật khẩu</label>
-                                <input type="text" name="matKhau2" id="matKhau2" className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
-                                {this.state.errors.matKhau2 !== '' ? <div className="alert alert-danger">{this.state.errors.matKhau2}</div> : ''}
-                            </div>
-                            <div className="form-group">
-                                <label >Họ và tên</label>
-                                <input type="text" name="hoTen" id="hoTen" value={this.state.nguoiDK.hoTen} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
-                                {this.state.errors.hoTen !== '' ? <div className="alert alert-danger">{this.state.errors.hoTen}</div> : ''}
-                            </div>
-                            <div className="form-group">
-                                <label >Email</label>
-                                <input type="text" name="email" id="email" value={this.state.nguoiDK.email} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
-                                {this.state.errors.email !== '' ? <div className="alert alert-danger">{this.state.errors.email}</div> : ''}
-                            </div>
-                            <div className="form-group">
-                                <label >Số điện thoại</label>
-                                <input type="text" name="soDt" id="soDt" value={this.state.nguoiDK.soDt} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
-                                {this.state.errors.soDt !== '' ? <div className="alert alert-danger">{this.state.errors.soDt}</div> : ''}
-                            </div>
-                            <div className="form-group">
-                                <button className="btn btn-success">Đăng ký</button>
-                            </div>
-                        </form>
-                    </div>
+                <div className="container">
+                    <Row className="register_form">
+                        <Col span={12} offset={6}>
+                            <h3 className="title-form">Đăng ký</h3>
+
+                            <form action="" onSubmit={this.handleSubmit}>
+                                <div className="form-group">
+                                    <label >Tài khoản</label>
+                                    <input type="text" name="taiKhoan" id="taiKhoan" className="form-control" value={this.state.nguoiDK.taiKhoan} onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
+                                    {this.state.errors.taiKhoan !== '' ? <div className="alert alert-danger">{this.state.errors.taiKhoan}</div> : ''}
+                                </div>
+                                <div className="form-group">
+                                    <label >Mật khẩu</label>
+                                    <input type="text" name="matKhau" id="matKhau" value={this.state.nguoiDK.matKhau} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
+                                    {this.state.errors.matKhau !== '' ? <div className="alert alert-danger">{this.state.errors.matKhau}</div> : ''}
+                                </div>
+                                <div className="form-group">
+                                    <label >Nhập lại mật khẩu</label>
+                                    <input type="text" name="matKhau2" id="matKhau2" className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
+                                    {this.state.errors.matKhau2 !== '' ? <div className="alert alert-danger">{this.state.errors.matKhau2}</div> : ''}
+                                </div>
+                                <div className="form-group">
+                                    <label >Họ và tên</label>
+                                    <input type="text" name="hoTen" id="hoTen" value={this.state.nguoiDK.hoTen} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
+                                    {this.state.errors.hoTen !== '' ? <div className="alert alert-danger">{this.state.errors.hoTen}</div> : ''}
+                                </div>
+                                <div className="form-group">
+                                    <label >Email</label>
+                                    <input type="text" name="email" id="email" value={this.state.nguoiDK.email} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
+                                    {this.state.errors.email !== '' ? <div className="alert alert-danger">{this.state.errors.email}</div> : ''}
+                                </div>
+                                <div className="form-group">
+                                    <label >Số điện thoại</label>
+                                    <input type="text" name="soDt" id="soDt" value={this.state.nguoiDK.soDt} className="form-control" onChange={this.handleChange} onKeyUp={this.handleErrors} onBlur={this.handleErrors} />
+                                    {this.state.errors.soDt !== '' ? <div className="alert alert-danger">{this.state.errors.soDt}</div> : ''}
+                                </div>
+                                <div className="form-group">
+                                    <button className="btn btn-success">Đăng ký</button>
+                                </div>
+                            </form>
+                        </Col>
+                    </Row>
                 </div>
             </div>
         )

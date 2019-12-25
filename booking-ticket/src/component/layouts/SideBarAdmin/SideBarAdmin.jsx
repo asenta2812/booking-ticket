@@ -1,36 +1,37 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { Layout, Menu, Icon } from 'antd';
+const { Sider } = Layout;
+const { Item } = Menu;
 
-export default class SideBarAdmin extends Component {
+
+class SideBarAdmin extends Component {
+
     render() {
         return (
-            <div className="default-sidebar">
-                {/* Begin Side Navbar */}
-                <nav className="side-navbar box-scroll sidebar-scroll">
-                    {/* Begin Main Navigation */}
-                    <span className="heading">Quản lý</span>
-                    <ul className="list-unstyled">
-                        <li>
-                            <NavLink to="/trangquanly/phim" activeClassName="selected">
-                                <i className="la la-share-alt" />
-                                <span>Quản lý phim</span>
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/trangquanly/nguoidung" activeClassName="selected">
-                                <i className="la la-font" />
-                                <span>Quản lý người dùng</span>
-                            </NavLink>
-                        </li>
-
-
-                    </ul>
-                    {/* End Main Navigation */}
-                </nav>
-                {/* End Side Navbar */}
-            </div>
-
-
+            <Sider trigger={null} collapsible collapsed={this.props.collapsed}>
+                <div className="logo" />
+                <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+                    <Menu.Item key="1">
+                        <NavLink to="/trangquanly/phim">
+                            <Icon type="video-camera" />
+                            <span>Quản lý phim</span>
+                        </NavLink>
+                    </Menu.Item>
+                    <Menu.Item key="2">
+                        <NavLink to="/trangquanly/quanlynguoidung">
+                            <Icon type="user" />
+                            <span>Quản lý người dùng</span>
+                        </NavLink>
+                    </Menu.Item>
+                </Menu>
+            </Sider>
         )
     }
 }
+const mapStateToProps = (state) => ({
+    collapsed: state.BookingTicketReducer.collapsed
+})
+
+export default connect(mapStateToProps, null)(SideBarAdmin)
